@@ -1,4 +1,3 @@
-import GuestLayout from "@/layouts/guest";
 import Hero from "@/components/application/home/hero";
 import MyCourses from "@/components/application/home/courses";
 import Reviews from "@/components/application/home/reviews";
@@ -10,13 +9,13 @@ export default async function Page() {
   const youtubeCourses = await getYoutubeCourses();
 
   return (
-    <GuestLayout>
+    <>
       <Hero />
       <MyCourses courses={courses.data} />
       <Reviews />
       <MyYouTubeChannel youtubeVideos={youtubeCourses.data} />
       <NewsLetter />
-    </GuestLayout>
+    </>
   );
 }
 

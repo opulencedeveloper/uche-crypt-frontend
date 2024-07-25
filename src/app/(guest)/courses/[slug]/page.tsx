@@ -1,5 +1,3 @@
-import GuestLayout from "@/layouts/guest";
-
 import Reviews from "@/components/application/home/reviews";
 import RenderCourses from "@/components/application/course-details/render-courses";
 import CourseContent from "@/components/application/course-details/course-content";
@@ -9,7 +7,7 @@ import BankNote from "@/assets/images/home/bank-note.png";
 
 export default function Page({ params }: any) {
   return (
-    <GuestLayout>
+    <>
       <CourseContent />
       <Reviews />
       <section className="bg-white mb-42 w-full flex justify-center">
@@ -28,6 +26,6 @@ export default function Page({ params }: any) {
           <Image src={BankNote} alt="" /> Buy course
         </button>
       </div>
-    </GuestLayout>
+    </>
   );
 }

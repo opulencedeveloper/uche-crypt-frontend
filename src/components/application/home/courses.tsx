@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import MemeCombat from "@/assets/images/home/meme-combat.png";
 import ArrowRight from "@/assets/images/home/arrow-narrow-up-right.png";
 import ArrowRightGreen from "@/assets/images/home/arrow-narrow-up-right-green.png";
 
