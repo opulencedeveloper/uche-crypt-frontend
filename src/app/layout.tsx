@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-// Toast
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { UserProvider } from "@/contexts/user";
+import { ToastProvider } from "@/contexts/toast";
+import ToastMessage from "@/components/application/toast";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,8 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("")}>
-        <ToastContainer position="top-center" />
-        {children}
+        <UserProvider>
+          <ToastProvider>
+            <ToastMessage />
+            {children}
+          </ToastProvider>
+        </UserProvider>
       </body>
     </html>
   );

@@ -1,40 +1,36 @@
 "use client";
 import { useState } from "react";
-
-import AuthFormInput from "../auth-form-input";
+import { useAuth } from "@/hooks/auth";
 
 import Image from "next/image";
-import VerifyImage from "@/assets/images/auth-layout/verify.png";
 
-import { toast } from "react-toastify";
+import AuthFormInput from "../auth-form-input";
+import RollingSpinner from "@/assets/images/home/rolling-spinner.svg";
 
 export default function ForgotPasswordForm() {
   const [email, setEmail] = useState("");
   const [linkSent, setLinkSent] = useState(false);
 
-  const submit = () => {
-    toast.success("Password successfully created", {
-      position: "top-right",
-      style: {
-        backgroundColor: "#F2F2F2",
-        borderRadius: "12px",
-        padding: "12px, 16px, 12px, 16px",
-        gap: "4px",
-        color: "#006633",
-        fontWeight: "400",
-        fontSize: "14px",
-        boxShadow: "none",
-        fontFamily: "CarosSoftNormal",
-      },
-      autoClose: 3000,
-      closeButton: false,
-      hideProgressBar: true,
-      icon: <Image src={VerifyImage} width={24} height={24} alt="" />,
+  const [loading, setLoading] = useState(false);
+
+  const { forgotPassword } = useAuth();
+
+  const makeRequest = () => {
+    forgotPassword({
+      email,
+      setLoading,
+      handleSuccess: linkSent ? undefined : () => setLinkSent(true),
     });
+  };
+
+  const handleFormSubmit = (e: any) => {
+    e.preventDefault();
+    makeRequest();
   };
 
   return (
     <form
+      onSubmit={handleFormSubmit}
       className={` max-w-full h-max rounded-xl bg-white  px-8 flex flex-col ${
         linkSent ? "w-[455px] py-6" : "w-[375px] py-[18px]"
       }`}
@@ -50,11 +46,13 @@ export default function ForgotPasswordForm() {
       </div>
       {linkSent ? (
         <div className="text-[#6B7588] font-normal leading-6 text-base text-center">
-          We’ve sent an email to ogbonnasamuel67@gmail.com. <br />
+          We’ve sent an email to {email}. <br />
           Click the link in the email to reset your password. <br /> If you
           don’t see the email,{" "}
-          <button className="text-[#004FC4]">click here</button> and we’ll send
-          it again.
+          <button className="text-[#004FC4]" onClick={makeRequest}>
+            click here
+          </button>{" "}
+          and we’ll send it again.
         </div>
       ) : (
         <>
@@ -68,11 +66,14 @@ export default function ForgotPasswordForm() {
             />
           </div>
           <button
-            onClick={() => setLinkSent(true)}
             type="submit"
             className="w-full h-12 rounded-xl text-white font-medium text-base flex justify-center items-center bg-primarygreen1"
           >
-            Send reset password link
+            {loading ? (
+              <Image src={RollingSpinner} alt="" className=" h-7 w-max" />
+            ) : (
+              "Send reset password link"
+            )}
           </button>
         </>
       )}

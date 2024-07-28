@@ -59,9 +59,8 @@ export default function Hero() {
           <div className="flex items-center gap-[18.35px]">
             <Image src={ListImage} alt="" />
             <Link
-              onClick={() => alert("Y")}
               className="bg-primarygreen1 h-fixed52 flex justify-center items-center text-base font-bold text-white rounded-xl px-34 gap-2"
-              href=""
+              href="/courses"
             >
               <Image src={BankNote} alt="" /> Buy my courses
             </Link>

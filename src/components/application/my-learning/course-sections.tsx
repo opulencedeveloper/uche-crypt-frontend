@@ -20,7 +20,7 @@ export default function CourseSections() {
           Introduction to Crypto Prt.- beginner friendly
         </h1>
         <div className="mt-8 h-9 w-full px-[17px] block lg:hidden">
-          <SearchField />
+          <SearchField value="" setValue={(value) => {}} />
         </div>
       </div>
       <div className="pb-[26px] px-2 lg:px-[43.5px] pt-8 w-full">

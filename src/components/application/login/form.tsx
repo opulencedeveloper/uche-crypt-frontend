@@ -1,15 +1,32 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
+
 import { useState } from "react";
+import { useAuth } from "@/hooks/auth";
 
 import AuthFormInput from "../auth-form-input";
+import RollingSpinner from "@/assets/images/home/rolling-spinner.svg";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
+  const { login } = useAuth();
+
+  const handleFormSubmit = (e: any) => {
+    e.preventDefault();
+
+    login({ email, password, setLoading });
+  };
+
   return (
-    <form className="w-[375px] max-w-full h-max rounded-xl bg-white py-[18px] px-8 flex flex-col">
+    <form
+      onSubmit={handleFormSubmit}
+      className="w-[375px] max-w-full h-max rounded-xl bg-white py-[18px] px-8 flex flex-col"
+    >
       <div className="flex mb-1 items-center gap-1">
         <h3 className="text-dark1 font-bold text-[22px] leading-[33px]">
           Sign in
@@ -49,7 +66,12 @@ export default function LoginForm() {
         type="submit"
         className="w-full h-12  mb-[18px] rounded-xl text-white font-medium text-base flex justify-center items-center bg-primarygreen1"
       >
-        Continue
+        {" "}
+        {loading ? (
+          <Image src={RollingSpinner} alt="" className=" h-7 w-max" />
+        ) : (
+          " Continue"
+        )}
       </button>
       <div className="w-full justify-center flex items-center font-medium text-base leading-6">
         <p className="text-dark1">Don’t have an account?</p>&nbsp;

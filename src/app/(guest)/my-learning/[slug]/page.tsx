@@ -13,7 +13,7 @@ export default function Page({ params }: any) {
 
         <div className="w-full hidden lg:flex justify-between mb-3 mt-8">
           <div className="h-9 w-[361px]">
-            <SearchField />
+            <SearchField setValue={(value) => {}} value="" />
           </div>
         </div>
 
@@ -27,7 +27,7 @@ export default function Page({ params }: any) {
           <h2 className="text-black px-6 xl-px-0 font-bold text-[32px] leading-[48px] mb-8">
             Other courses
           </h2>
-          <RenderCourses />
+          <RenderCourses courses={[]} />
         </div>
       </div>
     </section>

@@ -67,7 +67,10 @@ export default function MyCourses({ courses }: MyCoursesParams) {
           })}
         </div>
       </div>
-      <Link href="" className="flex items-center gap-1 text-primarygreen1">
+      <Link
+        href="/courses"
+        className="flex items-center gap-1 text-primarygreen1"
+      >
         <p className="text-base font-normal">See all courses</p>{" "}
         <Image src={ArrowRightGreen} alt="" />
       </Link>

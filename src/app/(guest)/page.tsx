@@ -11,9 +11,9 @@ export default async function Page() {
   return (
     <>
       <Hero />
-      <MyCourses courses={courses.data} />
+      <MyCourses courses={courses?.data} />
       <Reviews />
-      <MyYouTubeChannel youtubeVideos={youtubeCourses.data} />
+      <MyYouTubeChannel youtubeVideos={youtubeCourses?.data} />
       <NewsLetter />
     </>
   );
@@ -26,11 +26,9 @@ async function getCourses() {
     },
   });
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+  if (res.ok) {
+    return res.json();
   }
-
-  return res.json();
 }
 
 async function getYoutubeCourses() {
@@ -43,9 +41,7 @@ async function getYoutubeCourses() {
     }
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+  if (res.ok) {
+    return res.json();
   }
-
-  return res.json();
 }

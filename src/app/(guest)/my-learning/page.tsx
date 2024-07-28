@@ -13,7 +13,7 @@ export default function Page() {
           </h2>
         </div>
 
-        <RenderCourses />
+        <RenderCourses courses={[]} />
       </div>
     </section>
   );

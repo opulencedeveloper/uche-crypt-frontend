@@ -1,15 +1,18 @@
-import Link from "next/link";
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import ArrowLeft from "@/assets/images/arrow-left.png";
 
 export default function GoBackLink() {
+  const router = useRouter();
+
   return (
-    <Link
-      href="/"
+    <button
+      onClick={() => router.back()}
       className="flex w-max items-center gap-1 text-dark1 text-base font-normal pl-6 xl:pl-0"
     >
       <Image src={ArrowLeft} alt="" /> Back
-    </Link>
+    </button>
   );
 }
