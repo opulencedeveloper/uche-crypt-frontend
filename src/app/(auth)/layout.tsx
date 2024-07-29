@@ -1,4 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 import Image from "next/image";
 import Background from "@/assets/images/home/background.png";
@@ -13,6 +18,16 @@ export default function AuthenticationLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = Cookies.get("token");
+
+    if (token) {
+      router.push("/my-learning");
+    }
+  }, []);
+
   return (
     <main className="w-full h-screen bg-oldlace relative overflow-y-auto">
       <div className="fixed h-full w-full overflow-hidden">

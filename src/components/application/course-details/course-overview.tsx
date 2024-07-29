@@ -22,9 +22,8 @@ export default function CourseOverview({ course }: Params) {
         </p>
 
         <iframe
-          className="rounded-[6px] lg:mb-8 mb-6"
+          className="rounded-[6px] h-[221px] lg:h-[350px] lg:mb-8 mb-6"
           width="100%"
-          height="350"
           src={course.video_url}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

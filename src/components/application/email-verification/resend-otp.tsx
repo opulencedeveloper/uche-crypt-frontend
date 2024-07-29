@@ -1,12 +1,16 @@
+import { useAuth } from "@/hooks/auth";
 import React, { useState, useEffect } from "react";
 
 interface Params {
+  email: string;
   setLoading: (value: boolean) => void;
 }
 
-const ResendOTP: React.FC<Params> = ({ setLoading }) => {
+const ResendOTP: React.FC<Params> = ({ setLoading, email }) => {
   const [timer, setTimer] = useState(120);
   const [isCounting, setIsCounting] = useState(false);
+
+  const { resendVerificationCode } = useAuth();
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -21,10 +25,14 @@ const ResendOTP: React.FC<Params> = ({ setLoading }) => {
   }, [isCounting, timer]);
 
   const handleResend = () => {
-    setLoading(true);
-    setTimer(120);
-    setIsCounting(true);
-    setLoading(false);
+    resendVerificationCode({
+      setLoading,
+      email,
+      handleSuccess: () => {
+        setTimer(120);
+        setIsCounting(true);
+      },
+    });
   };
 
   return (

@@ -62,7 +62,7 @@ export default function EmailVerificationForm() {
             : "border-[#006633] bg-[#E6FFF2] text-[#006633]",
         }}
       />
-      <ResendOTP setLoading={setLoading} />
+      <ResendOTP email={email} setLoading={setLoading} />
       <div className="w-full  flex justify-center">
         <Image
           className={`animate-spin mt-4 ${loading ? "block" : "hidden"}`}

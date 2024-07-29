@@ -7,6 +7,7 @@ import { useUser } from "@/contexts/user";
 import { useToast } from "@/contexts/toast";
 
 interface loginParams {
+  router: any;
   email: string;
   password: string;
   setLoading: (value: boolean) => void;
@@ -28,10 +29,23 @@ interface verifyEmailParams {
   setError: (value: boolean) => void;
 }
 
+interface resetPasswordParams {
+  router: any;
+  email: string;
+  otp: string;
+  password: string;
+  confirm_password: string;
+  setLoading: (value: boolean) => void;
+}
+
 interface forgotPasswordParams {
   email: string;
   setLoading: (value: boolean) => void;
   handleSuccess?: () => void;
+}
+
+interface fetchUserParams {
+  token: string;
 }
 
 export const useAuth = () => {
@@ -50,7 +64,12 @@ export const useAuth = () => {
     }, 4000);
   };
 
-  const login = async ({ email, setLoading, password }: loginParams) => {
+  const login = async ({
+    email,
+    setLoading,
+    password,
+    router,
+  }: loginParams) => {
     const config = {
       url: "/signin",
       method: "POST",
@@ -62,10 +81,16 @@ export const useAuth = () => {
     try {
       setLoading(true);
       const res = await axios.request(config);
-      console.log(res);
       setLoading(false);
 
-      notifyUser("success", "Login Successful", "right");
+      if (res?.data?.description === "Logged in successfully") {
+        notifyUser("success", "Logged in successfully", "right");
+        Cookies.set("token", res.data.data.token || "");
+        router.push("/my-learning");
+      } else {
+        Cookies.set("account-email", email);
+        router.push("/email-verification");
+      }
     } catch (error: any) {
       setLoading(false);
       notifyUser("error", error.message || "Failed To Login", "right");
@@ -97,6 +122,51 @@ export const useAuth = () => {
       setLoading(false);
       notifyUser("error", "Invalid OTP", "center");
       setError(true);
+    }
+  };
+
+  const fetchUser = async ({ token }: fetchUserParams) => {
+    const config = {
+      url: "/user",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    };
+    try {
+      const res = await axios.request(config);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const resetPassword = async ({
+    email,
+    setLoading,
+    otp,
+    router,
+    password,
+    confirm_password,
+  }: resetPasswordParams) => {
+    const config = {
+      url: "/forgot/password/change",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: { email, otp, password, confirm_password },
+    };
+    try {
+      setLoading(true);
+      await axios.request(config);
+      setLoading(false);
+      notifyUser("success", "Password changed successfully", "right");
+      router.push("/login");
+    } catch (error: any) {
+      setLoading(false);
+      notifyUser("error", error.message || "Invalid OTP", "right");
     }
   };
 
@@ -158,6 +228,31 @@ export const useAuth = () => {
       }
     } catch (error: any) {
       setLoading(false);
+      notifyUser("error", error.message || "Error making request", "right");
+    }
+  };
+
+  const resendVerificationCode = async ({
+    email,
+    setLoading,
+    handleSuccess,
+  }: forgotPasswordParams) => {
+    const config = {
+      url: "/resend/email/verification/otp",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: { email },
+    };
+    try {
+      setLoading(true);
+      await axios.request(config);
+      setLoading(false);
+      handleSuccess && handleSuccess();
+      notifyUser("success", "Sent successfully!", "center");
+    } catch (error: any) {
+      setLoading(false);
       notifyUser("error", error.message || "Error making request", "center");
     }
   };
@@ -167,5 +262,9 @@ export const useAuth = () => {
     register,
     verifyEmail,
     forgotPassword,
+    resetPassword,
+    resendVerificationCode,
+    notifyUser,
+    fetchUser,
   };
 };

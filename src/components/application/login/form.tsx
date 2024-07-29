@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { useState } from "react";
 import { useAuth } from "@/hooks/auth";
+import { useRouter } from "next/navigation";
 
 import AuthFormInput from "../auth-form-input";
 import RollingSpinner from "@/assets/images/home/rolling-spinner.svg";
@@ -15,11 +16,12 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false);
 
   const { login } = useAuth();
+  const router = useRouter();
 
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
 
-    login({ email, password, setLoading });
+    login({ email, password, setLoading, router });
   };
 
   return (

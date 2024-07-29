@@ -32,14 +32,16 @@ export default function CourseContent({ course }: Params) {
           </button>
         </div> */}
 
-        <iframe
-          className="h-max lg:h-[467px] rounded-[22px] mb-6 lg:mb-8"
-          width="100%"
-          src={course.video_url}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+        <div className="w-full px-6 xl:px-0">
+          <iframe
+            className="h-[221px] lg:h-[467px] rounded-[22px] mb-6 lg:mb-8"
+            width="100%"
+            src={course.video_url}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
 
         <Contents contents={course.course_content} />
       </div>
