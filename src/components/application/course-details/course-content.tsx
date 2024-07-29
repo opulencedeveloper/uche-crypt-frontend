@@ -34,7 +34,7 @@ export default function CourseContent({ course }: Params) {
 
         <div className="w-full px-6 xl:px-0">
           <iframe
-            className="h-[221px] lg:h-[467px] rounded-[22px] mb-6 lg:mb-8"
+            className="h-[221px] lg:h-[467px] rounded-[6px] lg:rounded-[22px] mb-6 lg:mb-8"
             width="100%"
             src={course.video_url}
             title="YouTube video player"
