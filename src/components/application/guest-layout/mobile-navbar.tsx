@@ -12,9 +12,11 @@ import ArrowUp from "@/assets/images/home/arrow-narrow-up-right.png";
 
 import WhatsAppLink from "./whatsapp-link";
 import EmailLink from "./email-link";
+import { useUser } from "@/contexts/user";
 
 export default function MobileNavbar() {
   const [open, setOpen] = useState(false);
+  const { user }: any = useUser();
 
   return (
     <div className="flex tablet:hidden">
@@ -47,6 +49,7 @@ export default function MobileNavbar() {
           <div className="w-full border-b border-[#E9E9E9]"></div>
           <Link
             href="/about"
+            onClick={() => setOpen(false)}
             className="w-full flex justify-between  items-center"
           >
             <p className="text-dark1 text-base font-normal ">About me</p>
@@ -57,19 +60,35 @@ export default function MobileNavbar() {
           <WhatsAppLink />
           <EmailLink />
           <div className="w-full border-b border-[#E9E9E9]"></div>
-          <Link
-            className="font-normal w-full justify-center text-base text-dark1 flex items-center gap-1"
-            href="/login"
-          >
-            LogIn
-            <Image src={ArrowUp} alt="" width={12} height={12} />
-          </Link>
-          <Link
-            className="bg-primarygreen1 h-11 flex justify-center items-center text-base font-bold text-white rounded-xl w-full"
-            href="/about"
-          >
-            Sign up
-          </Link>
+          {user ? (
+            <Link
+              onClick={() => setOpen(false)}
+              href="/my-learning"
+              className="w-full flex justify-between  items-center"
+            >
+              <p className="text-dark1 text-base font-normal ">My learning</p>
+              <Image src={ChevronRight} alt="" />
+            </Link>
+          ) : (
+            <>
+              {" "}
+              <Link
+                onClick={() => setOpen(false)}
+                className="font-normal w-full justify-center text-base text-dark1 flex items-center gap-1"
+                href="/login"
+              >
+                LogIn
+                <Image src={ArrowUp} alt="" width={12} height={12} />
+              </Link>
+              <Link
+                onClick={() => setOpen(false)}
+                className="bg-primarygreen1 h-11 flex justify-center items-center text-base font-bold text-white rounded-xl w-full"
+                href="/about"
+              >
+                Sign up
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

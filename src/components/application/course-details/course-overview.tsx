@@ -8,9 +8,15 @@ import { benefits } from "@/resources/course-details/benefits";
 
 interface Params {
   course: any;
+  bought: boolean;
+  handleBuyCourse: () => void;
 }
 
-export default function CourseOverview({ course }: Params) {
+export default function CourseOverview({
+  course,
+  handleBuyCourse,
+  bought,
+}: Params) {
   return (
     <div className="w-full lg:my-42 mt-[26px] lg:gap-9 px-6 xl:px-0 items-start lg:flex-row flex-col mb-6 flex">
       <div className="lg:w-[calc(100%-508px)] w-full flex flex-col">
@@ -65,8 +71,17 @@ export default function CourseOverview({ course }: Params) {
           </h2>
           <StrikeThroughText />
         </div>
-        <button className="bg-primarygreen1 hidden h-fixed52 w-full lg:flex justify-center items-center text-base font-bold text-white rounded-xl px-34 gap-2">
-          <Image src={BankNote} alt="" /> Buy course
+        <button
+          onClick={handleBuyCourse}
+          className="bg-primarygreen1 hidden h-fixed52 w-full lg:flex justify-center items-center text-base font-bold text-white rounded-xl px-34 gap-2"
+        >
+          {bought ? (
+            <>Go to course</>
+          ) : (
+            <>
+              <Image src={BankNote} alt="" /> Buy course
+            </>
+          )}
         </button>
       </div>
     </div>

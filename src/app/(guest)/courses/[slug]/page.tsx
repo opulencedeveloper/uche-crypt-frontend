@@ -2,9 +2,6 @@ import Reviews from "@/components/application/home/reviews";
 import RenderCourses from "@/components/application/course-details/render-courses";
 import CourseContent from "@/components/application/course-details/course-content";
 
-import Image from "next/image";
-import BankNote from "@/assets/images/home/bank-note.png";
-
 export default async function Page({ params }: any) {
   const courses = await getCourses();
   const course = await getCourse(params.slug);
@@ -23,14 +20,6 @@ export default async function Page({ params }: any) {
               <RenderCourses courses={courses?.data} />
             </div>
           </section>
-          <div className="w-screen h-[72px] bg-primarygreen1 fixed bottom-0 left-0 lg:hidden flex justify-between items-center px-6">
-            <h1 className="text-[32px] leading-[48px] text-[#57EBA1] font-bold">
-              ${course.data.price}
-            </h1>
-            <button className="bg-transparent w-max flex justify-center items-center text-base font-normal text-white gap-2">
-              <Image src={BankNote} alt="" /> Buy course
-            </button>
-          </div>
         </>
       ) : (
         <div className="w-full py-16 flex justify-center">

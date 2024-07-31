@@ -14,7 +14,11 @@ import LogOut from "@/assets/images/profile-dropdown/logout.svg";
 import MyLearning from "@/assets/images/profile-dropdown/my-learning.svg";
 import ChevronRight from "@/assets/images/contact-dropdown/chevron-right.svg";
 
-export default function ProfileDropdown() {
+interface Params {
+  user: any;
+}
+
+export default function ProfileDropdown({ user }: Params) {
   const router = useRouter();
 
   return (
@@ -23,20 +27,21 @@ export default function ProfileDropdown() {
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">
             <div className="w-10 h-10 rounded-full bg-[#D4EADF] flex items-center justify-center">
-              <p className="text-primarygreen1 font-bold text-[13.3px]">A</p>
+              <p className="text-primarygreen1 font-bold text-[13.3px]">
+                {user?.email[0]?.toUpperCase() || ""}
+              </p>
             </div>
           </NavigationMenuTrigger>
           <NavigationMenuContent className=" navigation-menu-card md:w-[331px] border-none h-max bg-white rounded-xl p-6 flex flex-col gap-3">
             <div className="w-full flex gap-3 items-center">
               <div className="w-10 h-10 rounded-full bg-[#D4EADF] flex items-center justify-center">
-                <p className="text-primarygreen1 font-bold text-[13.3px]">A</p>
+                <p className="text-primarygreen1 font-bold text-[13.3px]">
+                  {user?.email[0]?.toUpperCase() || ""}
+                </p>
               </div>
-              <div className="flex flex-col gap-0.5">
-                <h3 className="font-bold text-sm text-dark1 leading-[21px]">
-                  Asamp ologwu
-                </h3>
+              <div className="flex flex-col justify-center gap-0.5">
                 <p className="text-[#8F90A6] text-base leading-6 font-normal truncate">
-                  ologwusamuel67@gmail.com
+                  {user?.email}
                 </p>
               </div>
             </div>

@@ -5,6 +5,10 @@ import Cookies from "js-cookie";
 
 import { useUser } from "@/contexts/user";
 import { useToast } from "@/contexts/toast";
+import { useLearning } from "@/contexts/learning";
+import { useMyLearning } from "./learning";
+
+import { usePathname } from "next/navigation";
 
 interface loginParams {
   router: any;
@@ -49,8 +53,12 @@ interface fetchUserParams {
 }
 
 export const useAuth = () => {
+  const pathname = usePathname();
   const { setUser }: any = useUser();
+  const { setCourses }: any = useLearning();
   const { setMessage, setToast, setPosition }: any = useToast();
+
+  const { getAllCourses } = useMyLearning();
 
   const notifyUser = (toast: string, message: string, position: string) => {
     setToast(toast);
@@ -61,7 +69,7 @@ export const useAuth = () => {
       setMessage("");
       setToast("");
       setPosition("right");
-    }, 4000);
+    }, 2000);
   };
 
   const login = async ({
@@ -85,8 +93,13 @@ export const useAuth = () => {
 
       if (res?.data?.description === "Logged in successfully") {
         notifyUser("success", "Logged in successfully", "right");
+        await fetchUser({ token: res.data.data.token });
+
+        let redirectionLink = Cookies.get("redirectionLink");
         Cookies.set("token", res.data.data.token || "");
-        router.push("/my-learning");
+
+        router.push(redirectionLink || "/my-learning");
+        Cookies.remove("redirectionLink");
       } else {
         Cookies.set("account-email", email);
         router.push("/email-verification");
@@ -136,9 +149,15 @@ export const useAuth = () => {
     };
     try {
       const res = await axios.request(config);
-      console.log(res);
-    } catch (error) {
-      console.log(error);
+      await getAllCourses({ token, setData: setCourses });
+      setUser(res.data.data);
+    } catch (error: any) {
+      if (error?.response?.status === 401) {
+        Cookies.remove("token");
+        if (pathname.startsWith("/my-learning")) {
+          window.location.href = "/login";
+        }
+      }
     }
   };
 

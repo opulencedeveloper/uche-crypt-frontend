@@ -3,7 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import ArrowRight from "@/assets/images/home/arrow-narrow-up-right.png";
 
-export default function RenderCourses({ courses }: { courses: any }) {
+export default function RenderCourses({
+  courses,
+  bought,
+}: {
+  courses: any;
+  bought?: boolean;
+}) {
   return (
     <div className="w-full px-6 xl:px-0 grid sm:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-x-3 gap-y-4 sm:gap-y-8">
       {/* Here You map Through the Courses */}
@@ -31,15 +37,21 @@ export default function RenderCourses({ courses }: { courses: any }) {
             <div className="w-full border-b border-[#EAEAEA]"></div>
             <div className="w-full flex items-center justify-between">
               <Link
-                href={`/courses/${item.slug}`}
+                href={
+                  bought ? `/my-learning/${item._id}` : `/courses/${item.slug}`
+                }
                 className="flex items-center gap-1 text-primarygreen1"
               >
-                <p className="text-base font-normal">Learn more</p>{" "}
+                <p className="text-base font-normal">
+                  {bought ? "Go to course" : "Learn more"}
+                </p>{" "}
                 <Image src={ArrowRight} alt="" />
               </Link>
-              <h2 className="font-bold text-[22px] text-black">
-                ${item.price}
-              </h2>
+              {!bought && (
+                <h2 className="font-bold text-[22px] text-black">
+                  ${item.price}
+                </h2>
+              )}
             </div>
           </div>
         );

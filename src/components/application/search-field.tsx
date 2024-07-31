@@ -8,6 +8,10 @@ interface Params {
 }
 
 export default function SearchField({ value, setValue }: Params) {
+  const handleChange = (e: any) => {
+    setValue(e.target.value);
+  };
+
   return (
     <div className="relative px-2 w-full h-full rounded-[10px] bg-[#7676801F] flex items-center justify-between">
       <div className="w-[25px]">
@@ -16,7 +20,7 @@ export default function SearchField({ value, setValue }: Params) {
       <input
         type="text"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={handleChange}
         className="w-[calc(100%-42px)] text-[#3C3C4399] placeholder:text-[#3C3C4399] text-[17px] font-normal bg-transparent outline-none"
         placeholder="Search"
       />

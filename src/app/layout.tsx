@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 
 import { UserProvider } from "@/contexts/user";
 import { ToastProvider } from "@/contexts/toast";
+import { LearningProvider } from "@/contexts/learning";
 import ToastMessage from "@/components/application/toast";
 
 export const metadata: Metadata = {
@@ -20,10 +21,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn("")}>
         <UserProvider>
-          <ToastProvider>
-            <ToastMessage />
-            {children}
-          </ToastProvider>
+          <LearningProvider>
+            <ToastProvider>
+              <ToastMessage />
+              {children}
+            </ToastProvider>
+          </LearningProvider>
         </UserProvider>
       </body>
     </html>
