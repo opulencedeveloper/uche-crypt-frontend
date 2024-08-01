@@ -24,7 +24,7 @@ export default function AllCourses({ courses }: Params) {
   return (
     <>
       <div className="w-full px-6 xl:px-0 lg:flex-row flex-col gap-y-8  flex justify-between my-8">
-        <h2 className="text-black font-bold text-[32px] leading-[48px] ">
+        <h2 className="text-black font-bold tablet:text-[32px] text-[28px] leading-[40px] tablet:leading-[48px] ">
           Online Courses
         </h2>
 

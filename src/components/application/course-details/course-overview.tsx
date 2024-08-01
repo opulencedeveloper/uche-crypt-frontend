@@ -20,7 +20,7 @@ export default function CourseOverview({
   return (
     <div className="w-full lg:my-42 mt-[26px] lg:gap-9 px-6 xl:px-0 items-start lg:flex-row flex-col mb-6 flex">
       <div className="lg:w-[calc(100%-508px)] w-full flex flex-col">
-        <h1 className="text-dark1 font-bold text-5xl leading-72 mb-8 hidden lg:block">
+        <h1 className="text-dark1 font-bold tablet:text-5xl leading-72 mb-8 hidden lg:block">
           {course.title}
         </h1>
         <p className="text-[22px] text-[#6B7588] leading-[33px] font-normal mb-8 hidden lg:block">
@@ -36,7 +36,7 @@ export default function CourseOverview({
           allowFullScreen
         ></iframe>
 
-        <h1 className="text-dark1 font-bold text-[32px] leading-[48px] mb-3 block lg:hidden">
+        <h1 className="text-dark1 font-bold text-[28px] leading-[40px] mb-3 block lg:hidden">
           Introduction to Crypto Prt.- beginner friendly
         </h1>
         <p className="text-base text-[#6B7588] leading-6 font-normal mb-6 lg:hidden block">
@@ -57,7 +57,7 @@ export default function CourseOverview({
               return (
                 <div key={item.title} className="flex items-center gap-2">
                   <Image src={item.image} alt="" className="w-6 h-6" />
-                  <p className="text-dark1 font-medium text-[22px] leading-[33px]">
+                  <p className="text-dark1 font-medium tablet:text-[22px] text-lg leading-7 tablet:leading-[33px]">
                     {item.title}
                   </p>
                 </div>

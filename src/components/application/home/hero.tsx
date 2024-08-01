@@ -49,11 +49,11 @@ export default function Hero() {
           />
 
           <SectionTitle title="Welcome to uchecrypt" />
-          <h1 className="my-2 text-center font-bold text-5xl tablet:text-62 leading-[62px] tablet:leading-80 text-deepGreen">
+          <h1 className="my-2 text-center font-bold text-4xl tablet:text-62 leading-[54px] tablet:leading-80 text-deepGreen">
             Your Gateway to Cryptocurrency{" "}
             <span className="text-amber">Excellence</span>
           </h1>
-          <p className="text-center font-normal text-lg tablet:text-28 leading-7 tablet:leading-42 text-dark1 mb-8">
+          <p className="text-center max-w-[280px] tablet:max-w-full font-normal text-base tablet:text-28 leading-7 tablet:leading-42 text-dark1 mb-8">
             Learn, Connect, Stay Updated – Thrive in Digital Assets.
           </p>
           <div className="flex items-center gap-[18.35px]">

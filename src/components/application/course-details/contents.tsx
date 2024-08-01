@@ -22,7 +22,7 @@ export default function Contents({
 }: Params) {
   return (
     <div className="w-full flex flex-col px-6 xl:px-0 mb-[34px] lg:mb-0">
-      <h3 className="text-dark1 font-bold text-[32px] leading-[48px] mb-3 lg:mb-6">
+      <h3 className="text-dark1 font-bold text-[28px] leading-[40px] tablet:text-[32px] tablet:leading-[48px] mb-3 lg:mb-6">
         Course content
       </h3>
       <Accordion type="single" collapsible>

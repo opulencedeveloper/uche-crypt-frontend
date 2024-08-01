@@ -14,7 +14,7 @@ export default function SectionTitle({
     >
       <p
         style={{ color: color ? color : "#006633" }}
-        className=" text-lg font-normal"
+        className="text-base tablet:text-lg font-normal"
       >
         {title}
       </p>

@@ -14,7 +14,7 @@ export default function MyCourses({ courses }: MyCoursesParams) {
   return (
     <section className="bg-white w-full py-0 tablet:py-37 my-10 tablet:my-42 pl-[25px] tablet:px-67 flex flex-col items-center">
       <SectionTitle title="My courses" />
-      <h2 className="mt-1 block tablet:hidden  text-center font-bold text-[32px]  leading-[48px] text-amber mb-6">
+      <h2 className="mt-1 block tablet:hidden  text-center font-bold text-[28px] leading-[40px] tablet:text-[32px]  tablet:leading-[48px] text-amber mb-6">
         <span className="heading-gradient-text">Excited to dive into</span>{" "}
         <br /> <span className="heading-gradient-text">the world of</span>{" "}
         crypto?

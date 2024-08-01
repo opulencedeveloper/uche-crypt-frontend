@@ -17,6 +17,7 @@ export const useMyLearning = () => {
     id: string;
     token: string;
     setData: (data: any) => void;
+    setOtherCourses: (data: any) => void;
   }
 
   interface buyCourse {
@@ -56,7 +57,25 @@ export const useMyLearning = () => {
     }
   };
 
-  const getCourse = async ({ token, setData, id }: getCourseParams) => {
+  const getGeneralCourses = async ({ setData }: { setData: any }) => {
+    const config = {
+      url: "/courses",
+      method: "GET",
+    };
+    try {
+      const res = await axios.request(config);
+      setData(res.data.data);
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
+
+  const getCourse = async ({
+    token,
+    setData,
+    id,
+    setOtherCourses,
+  }: getCourseParams) => {
     const config = {
       url: "/user/course/enrolled/" + id,
       method: "GET",
@@ -68,6 +87,7 @@ export const useMyLearning = () => {
     try {
       const res = await axios.request(config);
       setData(res.data.data);
+      await getGeneralCourses({ setData: setOtherCourses });
     } catch (error: any) {
       if (error?.response?.status === 401) {
         Cookies.remove("token");

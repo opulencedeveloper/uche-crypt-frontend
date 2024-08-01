@@ -14,7 +14,7 @@ export default async function Page({ params }: any) {
           <Reviews />
           <section className="bg-white mb-42 w-full flex justify-center">
             <div className="w-full max-w-[1150px] flex flex-col">
-              <h2 className="text-black px-6 xl:px-0 font-bold text-[32px] leading-[48px] mb-3 lg:mb-8">
+              <h2 className="text-black px-6 xl:px-0 font-bold text-[28px] leading-[40px] tablet:text-[32px] tablet:leading-[48px] mb-3 lg:mb-8">
                 Other courses
               </h2>
               <RenderCourses courses={courses?.data} />

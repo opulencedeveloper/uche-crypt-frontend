@@ -16,12 +16,12 @@ export default function Reviews() {
       {pathname === "/" ? (
         <SectionTitle title="Reviews" />
       ) : (
-        <p className="text-center text-[#6B7588] text-[22px] font-normal leading-[33px]">
+        <p className="text-center text-[#6B7588] text-base tablet:text-[22px] font-normal leading-[33px]">
           Testimonies
         </p>
       )}
 
-      <h2 className="mt-1 text-center font-bold text-[32px] tablet:text-5xl leading-[48px] tablet:leading-72 text-primarygreen1 tablet:mb-4 mb-[23px]">
+      <h2 className="mt-1 text-center font-bold text-[28px] tablet:text-5xl leading-[40px] tablet:leading-72 text-primarygreen1 tablet:mb-4 mb-[23px]">
         What <span className="text-amber">learners</span>{" "}
         <span className="heading-gradient-text"> are saying</span>
       </h2>

@@ -13,7 +13,7 @@ export default function MyYouTubeChannel({
   return (
     <section className="tablet:mb-42 mb-[22px] w-full my-youtube-section py-9 tablet:py-34 flex flex-col items-center pl-6 tablet:px-[67px]">
       <SectionTitle title="My youtube" background="#FFCBCB" color="#E53535" />
-      <h2 className="mb-6 pr-6 tablet:pr-0 text-center leading-[48px] tablet:leading-72 text-[32px] tablet:text-5xl font-bold text-dark1">
+      <h2 className="mb-6 pr-6 tablet:pr-0 text-center leading-[40px] tablet:leading-72 text-[28px] tablet:text-5xl font-bold text-dark1">
         Get more <span className="text-[#840910]">update</span> from my{" "}
         <br className="hidden tablet:block" /> Youtube channel
       </h2>

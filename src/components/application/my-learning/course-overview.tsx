@@ -6,6 +6,7 @@ import { useMyLearning } from "@/hooks/learning";
 import Cookies from "js-cookie";
 import SearchField from "@/components/application/search-field";
 import CourseSections from "@/components/application/my-learning/course-sections";
+import RenderCourses from "@/components/application/course-details/render-courses";
 
 import Video from "@/components/application/my-learning/video";
 
@@ -13,6 +14,7 @@ export default function CourseOverview({ slug }: { slug: string }) {
   const [value, setValue] = useState("");
   const [course, setCourse]: any = useState(null);
   const [currentVideoUrl, setCurrentVideoUrl] = useState("");
+  const [otherCourses, setOtherCourses] = useState([]);
 
   const { user }: any = useUser();
   const { getCourse } = useMyLearning();
@@ -21,7 +23,7 @@ export default function CourseOverview({ slug }: { slug: string }) {
 
   useEffect(() => {
     if (user && token) {
-      getCourse({ token, id: slug, setData: setCourse });
+      getCourse({ token, id: slug, setData: setCourse, setOtherCourses });
     }
   }, [user]);
 
@@ -49,6 +51,12 @@ export default function CourseOverview({ slug }: { slug: string }) {
           <Video url={currentVideoUrl} />
         </div>
       )}
+      <div className="w-full flex flex-col">
+        <h2 className="text-black px-6 xl-px-0 font-bold text-[32px] leading-[48px] mb-8">
+          Other courses
+        </h2>
+        <RenderCourses courses={otherCourses} />
+      </div>
     </>
   );
 }
