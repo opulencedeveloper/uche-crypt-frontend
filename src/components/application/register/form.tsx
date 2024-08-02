@@ -27,10 +27,10 @@ export default function RegisterForm() {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className="w-[375px] max-w-full h-max rounded-xl bg-white py-[18px] px-8 flex flex-col"
+      className="w-[375px] max-w-full h-max rounded-xl bg-white py-[18px] px-5 sm:px-8 flex flex-col"
     >
       <div className="flex mb-1 items-center gap-1">
-        <h3 className="text-dark1 font-bold text-[22px] leading-[33px]">
+        <h3 className="text-dark1 font-bold text-xl sm:text-[22px] leading-[33px]">
           Sign Up
         </h3>
       </div>
@@ -70,7 +70,7 @@ export default function RegisterForm() {
           " Continue"
         )}
       </button>
-      <div className="w-full justify-center flex items-center font-medium text-base leading-6">
+      <div className="w-full justify-center flex items-center font-medium text-sm sm:text-base leading-6">
         <p className="text-dark1">Already have an account? </p>&nbsp;
         <Link href="/login" className="text-primarygreen1">
           Sign In

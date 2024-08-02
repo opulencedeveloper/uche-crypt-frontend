@@ -42,11 +42,11 @@ export default function ResetPasswordForm() {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className={` h-max rounded-xl bg-white  px-8 flex flex-col w-[375px] py-[18px]`}
+      className={` h-max rounded-xl bg-white px-5  sm:px-8 flex flex-col max-w-full w-[375px] py-[18px]`}
     >
       <div className="flex mb-[23px] items-center gap-1">
         <h3
-          className={`text-dark1 w-full font-bold text-[22px] leading-[33px] `}
+          className={`text-dark1 w-full font-bold text-xl sm:text-[22px] leading-[33px] `}
         >
           Create password
         </h3>

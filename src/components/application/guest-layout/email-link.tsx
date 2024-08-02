@@ -2,10 +2,14 @@ import Image from "next/image";
 import Email from "@/assets/images/contact-dropdown/mail.svg";
 
 import ChevronRight from "@/assets/images/contact-dropdown/chevron-right.svg";
+import Link from "next/link";
 
 export default function EmailLink() {
   return (
-    <div className="w-full cursor-pointer flex justify-between items-start">
+    <Link
+      href="mailto:Uchcrypt@gmail.com"
+      className="w-full cursor-pointer flex justify-between items-start"
+    >
       <div className="flex items-start gap-3">
         <Image src={Email} alt="" width={15.88} height={16} />
         <div className="flex flex-col gap-0.5">
@@ -16,6 +20,6 @@ export default function EmailLink() {
         </div>
       </div>
       <Image src={ChevronRight} alt="" />
-    </div>
+    </Link>
   );
 }

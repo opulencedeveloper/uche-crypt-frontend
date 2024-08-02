@@ -16,9 +16,10 @@ import ChevronRight from "@/assets/images/contact-dropdown/chevron-right.svg";
 
 interface Params {
   user: any;
+  handleLogout: () => void;
 }
 
-export default function ProfileDropdown({ user }: Params) {
+export default function ProfileDropdown({ user, handleLogout }: Params) {
   const router = useRouter();
 
   return (
@@ -64,7 +65,10 @@ export default function ProfileDropdown({ user }: Params) {
               <Image src={ChevronRight} alt="" />
             </div>
 
-            <div className="w-full bg-[#FFF5F873] p-3 rounded-[8px]  cursor-pointer flex gap-3 items-center">
+            <div
+              onClick={handleLogout}
+              className="w-full bg-[#FFF5F873] p-3 rounded-[8px]  cursor-pointer flex gap-3 items-center"
+            >
               <Image src={LogOut} alt="" />
               <h3 className="text-sm font-bold text-[#E53535]">Logout</h3>
             </div>

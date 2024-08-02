@@ -55,7 +55,7 @@ export default function AuthenticationLayout({
         alt=""
         className="z-20 tablet:w-[130px] w-[125px] fixed bottom-5 tablet:top-[calc(50%-45px)] left-[calc(50vw-62.5px)] tablet:left-[124px]"
       />
-      <div className="bg-transparent static tablet:absolute z-30 tablet:top-[133px] w-full h-[calc(100%-270px)] flex items-start tablet:h-max">
+      <div className="bg-transparent px-5 tablet:px-0 absolute z-40 tablet:top-[133px] w-full h-[calc(100%-250px)] flex items-start tablet:h-max">
         {children}
       </div>
     </main>

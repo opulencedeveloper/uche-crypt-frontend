@@ -37,12 +37,12 @@ export default function CourseSections({
   };
 
   return (
-    <div className="lg:w-[calc(100%-533px)] mt-6 lg:mt-0 px-2 lg:px-0 w-full border border-[#D1D1D6] rounded-xl flex flex-col overflow-hidden">
+    <div className="lg:w-[calc(100%-533px)] mt-3 lg:mt-0 px-2 lg:px-0 w-full border border-[#D1D1D6] rounded-xl flex flex-col overflow-hidden">
       <div className="w-full pb-8 pt-[40px] px-4 lg:px-[41px] border-b border-[#C7C9D9] flex flex-col">
         <h1 className="font-bold text-black text-lg lg:text-[28px] leading-7 lg:leading-[42px]">
           {course?.course_title}
         </h1>
-        <div className="mt-8 h-9 w-full px-[17px] block lg:hidden">
+        <div className="mt-8 h-9 w-full tablet:px-[17px] block lg:hidden">
           <SearchField value={value} setValue={setValue} />
         </div>
       </div>

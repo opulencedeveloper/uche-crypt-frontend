@@ -31,13 +31,13 @@ export default function ForgotPasswordForm() {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className={` max-w-full h-max rounded-xl bg-white  px-8 flex flex-col ${
+      className={` max-w-full h-max rounded-xl bg-white px-5 sm:px-8 flex flex-col ${
         linkSent ? "w-[455px] py-6" : "w-[375px] py-[18px]"
       }`}
     >
       <div className="flex mb-[23px] items-center gap-1">
         <h3
-          className={`text-dark1 w-full font-bold text-[22px] leading-[33px] ${
+          className={`text-dark1 w-full font-bold text-xl sm:text-[22px] leading-[33px] ${
             linkSent ? "text-center" : "text-start"
           }`}
         >

@@ -9,10 +9,20 @@ import ContactHovermenu from "./contact-hover-menu";
 import ProfileDropdown from "./profile-dropdown";
 import MobileNavbar from "./mobile-navbar";
 
+import Cookies from "js-cookie";
+
 import { useUser } from "@/contexts/user";
+import { useRouter } from "next/navigation";
 
 export default function Navigation() {
-  const { user }: any = useUser();
+  const { user, setUser }: any = useUser();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    Cookies.remove("token");
+    setUser(null);
+    router.push("/login");
+  };
 
   return (
     <nav className="w-full h-[68px] tablet:h-84 px-6 tablet:px-16 flex justify-between items-center bg-honeydew">
@@ -52,10 +62,10 @@ export default function Navigation() {
             </Link>
           </>
         ) : (
-          <ProfileDropdown user={user} />
+          <ProfileDropdown handleLogout={handleLogout} user={user} />
         )}
       </div>
-      <MobileNavbar />
+      <MobileNavbar handleLogout={handleLogout} />
     </nav>
   );
 }

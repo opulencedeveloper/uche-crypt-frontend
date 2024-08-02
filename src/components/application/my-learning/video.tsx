@@ -16,7 +16,7 @@ export default function Video({ url }: Params) {
 
       <iframe
         id="video-box"
-        className="lg:w-[516px] w-full border border-[#D1D1D6] bg-black mt-5 lg:mt-0 rounded-xl h-[255px] lg:h-[340px] "
+        className="lg:w-[516px] w-full border border-[#D1D1D6] bg-black mt-5 lg:mt-0 rounded-xl h-[221px] lg:h-[340px] "
         width="100%"
         src={url}
         title="YouTube video player"

@@ -15,11 +15,11 @@ export const socialLinks = [
   },
   {
     image: Tiktok,
-    path: "",
+    path: "https://www.tiktok.com/@uchecrypt",
   },
   {
     image: Youtobe,
-    path: "",
+    path: "https://youtube.com/@uchecrypt",
   },
   {
     image: LinkedIn,

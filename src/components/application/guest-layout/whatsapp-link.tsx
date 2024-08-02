@@ -3,8 +3,12 @@ import ChevronRight from "@/assets/images/contact-dropdown/chevron-right.svg";
 import WhatsApp from "@/assets/images/contact-dropdown/whatsapp.svg";
 
 export default function WhatsAppLink() {
+  const whatsappURL = `https://wa.me/O8185643821?text=${""}`;
   return (
-    <div className="w-full cursor-pointer flex justify-between items-start">
+    <div
+      onClick={() => window.open(whatsappURL, "_blank")}
+      className="w-full cursor-pointer flex justify-between items-start"
+    >
       <div className="flex items-start gap-3">
         <Image src={WhatsApp} alt="" width={15.88} height={16} />
         <div className="flex flex-col gap-0.5">

@@ -40,10 +40,10 @@ export default function EmailVerificationForm() {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className="w-[375px] max-w-full h-max rounded-xl bg-white py-[24px] px-8 flex flex-col"
+      className="w-[375px] max-w-full h-max rounded-xl bg-white py-[24px] px-5 sm:px-8 flex flex-col"
     >
       <div className="flex mb-1 items-center gap-1">
-        <h3 className="text-dark1 font-bold text-[22px] leading-[33px]">
+        <h3 className="text-dark1 font-bold text-xl sm:text-[22px] leading-[33px]">
           Verify your Email
         </h3>
       </div>

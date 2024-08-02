@@ -27,13 +27,13 @@ export default function LoginForm() {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className="w-[375px] max-w-full h-max rounded-xl bg-white py-[18px] px-8 flex flex-col"
+      className="w-[375px] max-w-full h-max rounded-xl bg-white py-[18px] px-5 sm:px-8 flex flex-col"
     >
       <div className="flex mb-1 items-center gap-1">
-        <h3 className="text-dark1 font-bold text-[22px] leading-[33px]">
+        <h3 className="text-dark1 font-bold text-xl sm:text-[22px] leading-[33px]">
           Sign in
         </h3>
-        <div className="py-1 px-2.5 rounded-full bg-[#E5B80026]">
+        <div className="sm:py-1 py-0.5 px-1.5 sm:px-2.5 rounded-full bg-[#E5B80026]">
           <p className="text-xs font-normal leading-[18px] text-[#9B5C10]">
             Course access
           </p>
@@ -59,7 +59,7 @@ export default function LoginForm() {
         />
         <Link
           href="/forgot-password"
-          className="text-primarygreen1 text-base text-right font-medium leading-6"
+          className="text-primarygreen1 tsxt-sm sm:text-base text-right font-medium leading-6"
         >
           Forgot password ?
         </Link>
@@ -75,7 +75,7 @@ export default function LoginForm() {
           " Continue"
         )}
       </button>
-      <div className="w-full justify-center flex items-center font-medium text-base leading-6">
+      <div className="w-full justify-center flex items-center font-medium text-sm sm:text-base leading-6">
         <p className="text-dark1">Don’t have an account?</p>&nbsp;
         <Link href="/register" className="text-primarygreen1">
           Sign up

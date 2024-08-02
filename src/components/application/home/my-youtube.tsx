@@ -41,7 +41,10 @@ export default function MyYouTubeChannel({
           })}
         </div>
       </div>
-      <Link href="" className="flex items-center gap-1 text-primarygreen1">
+      <Link
+        href="https://youtube.com/@uchecrypt"
+        className="flex items-center gap-1 text-primarygreen1"
+      >
         <p className="text-base font-normal">Go to my channel</p>{" "}
         <Image src={ArrowRightGreen} alt="" />
       </Link>
