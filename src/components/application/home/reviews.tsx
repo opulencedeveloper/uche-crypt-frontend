@@ -12,7 +12,7 @@ export default function Reviews() {
   const pathname = usePathname();
 
   return (
-    <section className=" w-full pt-[41px] tablet:pb-[63px] pb-[35px] bg-[#FAFAFA] tablet:my-42 pl-[27px] mb-[46px] tablet:px-[63px] flex flex-col items-center">
+    <section className=" w-full pt-[41px] tablet:pb-[63px] pb-[35px] bg-[#FAFAFA] tablet:my-42 tablet:pl-[27px] mb-[46px] tablet:px-[63px] flex flex-col items-center">
       {pathname === "/" ? (
         <SectionTitle title="Reviews" />
       ) : (
@@ -21,12 +21,12 @@ export default function Reviews() {
         </p>
       )}
 
-      <h2 className="mt-1 text-center font-bold text-[28px] tablet:text-5xl leading-[40px] tablet:leading-72 text-primarygreen1 tablet:mb-4 mb-[23px]">
+      <h2 className="mt-1 px-3 tablet:px-0 text-center font-bold text-[28px] tablet:text-5xl leading-[40px] tablet:leading-72 text-primarygreen1 tablet:mb-4 mb-[23px]">
         What <span className="text-amber">learners</span>{" "}
         <span className="heading-gradient-text"> are saying</span>
       </h2>
       <div className="w-full overflow-x-auto scroll-hidden">
-        <div className="w-max flex gap-3 pr-[27px]">
+        <div className="w-max flex gap-3 px-[27px]">
           {reviews.map((item) => {
             return (
               <div
