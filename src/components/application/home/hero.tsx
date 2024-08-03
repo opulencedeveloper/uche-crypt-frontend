@@ -49,7 +49,7 @@ export default function Hero() {
           />
 
           <SectionTitle title="Welcome to uchecrypt" />
-          <h1 className="my-2 text-center font-bold text-4xl tablet:text-62 leading-[54px] tablet:leading-80 text-deepGreen">
+          <h1 className="my-2 text-center font-bold text-4xl max-w-full tablet:text-62 leading-[54px] tablet:leading-80 text-deepGreen">
             Your Gateway to Cryptocurrency{" "}
             <span className="text-amber">Excellence</span>
           </h1>

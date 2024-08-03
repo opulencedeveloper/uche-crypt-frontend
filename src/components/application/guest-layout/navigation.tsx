@@ -56,7 +56,7 @@ export default function Navigation() {
             </Link>
             <Link
               className="bg-primarygreen1 h-11 flex justify-center items-center text-base font-bold text-white rounded-xl w-184"
-              href="/about"
+              href="/register"
             >
               Sign up
             </Link>
