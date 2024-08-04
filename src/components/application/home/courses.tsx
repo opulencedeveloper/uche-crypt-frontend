@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import ArrowRight from "@/assets/images/home/arrow-narrow-up-right.png";
-import ArrowRightGreen from "@/assets/images/home/arrow-narrow-up-right-green.png";
+import ArrowRight from "@/assets/images/home/arrow-narrow-up-right.svg";
+import ArrowRightGreen from "@/assets/images/home/arrow-narrow-up-right-green.svg";
 
 import SectionTitle from "@/components/ui/section-title";
 

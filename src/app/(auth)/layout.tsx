@@ -7,9 +7,9 @@ import { useRouter } from "next/navigation";
 
 import Image from "next/image";
 import Background from "@/assets/images/home/background.png";
-import LogoImage from "@/assets/images/navigation/logo.png";
-import LearnImage from "@/assets/images/auth-layout/Learn.png";
-import CryptoExpertImage from "@/assets/images/auth-layout/crypto-expert.png";
+import LogoImage from "@/assets/images/navigation/logo.svg";
+import LearnImage from "@/assets/images/auth-layout/learn.svg";
+import CryptoExpertImage from "@/assets/images/auth-layout/crypto-expert.svg";
 
 import GoBackLink from "@/components/ui/go-back-link";
 

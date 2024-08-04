@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-import ArrowLeft from "@/assets/images/arrow-left.png";
+import ArrowLeft from "@/assets/images/arrow-left.svg";
 
 export default function GoBackLink() {
   const router = useRouter();

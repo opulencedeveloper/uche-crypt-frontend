@@ -35,8 +35,9 @@ export const useNewsLetter = () => {
       setLoading(false);
 
       notifyUser("success", "Email added to newsletter successfully!");
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
+      notifyUser("erroor", error?.response?.data?.description || "Error");
     }
   };
 

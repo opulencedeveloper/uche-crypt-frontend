@@ -2,7 +2,7 @@
 import { useToast } from "@/contexts/toast";
 
 import Image from "next/image";
-import VerifyImage from "@/assets/images/auth-layout/verify.png";
+import VerifyImage from "@/assets/images/auth-layout/verify.svg";
 import XMarkImage from "@/assets/images/auth-layout/x-mark.svg";
 
 export default function ToastMessage() {

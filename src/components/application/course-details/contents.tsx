@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/accordion";
 
 import Image from "next/image";
-import BankNote from "@/assets/images/home/bank-note.png";
+import BankNote from "@/assets/images/home/bank-note.svg";
 import ArrowDown from "@/assets/images/chevron-down-green.svg";
 
 interface Params {

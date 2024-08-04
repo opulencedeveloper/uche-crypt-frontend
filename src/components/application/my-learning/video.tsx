@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PlayButton from "@/assets/images/course-details/play-cricle.png";
+import PlayButton from "@/assets/images/course-details/play-circle.svg";
 
 interface Params {
   url: string;

@@ -2,8 +2,8 @@
 import Link from "next/link";
 
 import Image from "next/image";
-import LogoImage from "@/assets/images/navigation/logo.png";
-import ArrowUpImage from "@/assets/images/navigation/arrow-narrow-up-right.png";
+import LogoImage from "@/assets/images/navigation/logo.svg";
+import ArrowUpImage from "@/assets/images/navigation/arrow-narrow-up-right.svg";
 
 import ContactHovermenu from "./contact-hover-menu";
 import ProfileDropdown from "./profile-dropdown";

@@ -106,7 +106,11 @@ export const useAuth = () => {
       }
     } catch (error: any) {
       setLoading(false);
-      notifyUser("error", error.message || "Failed To Login", "right");
+      notifyUser(
+        "error",
+        error?.response?.data?.description || "Failed To Login",
+        "right"
+      );
     }
   };
 
@@ -185,7 +189,11 @@ export const useAuth = () => {
       router.push("/login");
     } catch (error: any) {
       setLoading(false);
-      notifyUser("error", error.message || "Invalid OTP", "right");
+      notifyUser(
+        "error",
+        error?.response?.data?.description || "Invalid OTP",
+        "right"
+      );
     }
   };
 
@@ -219,7 +227,13 @@ export const useAuth = () => {
       router.push("/email-verification");
     } catch (error: any) {
       setLoading(false);
-      notifyUser("error", error.message || "Failed To Create Account", "right");
+      console.log(error);
+
+      notifyUser(
+        "error",
+        error?.response?.data?.description || "Failed To Create Account",
+        "right"
+      );
     }
   };
 
@@ -247,7 +261,11 @@ export const useAuth = () => {
       }
     } catch (error: any) {
       setLoading(false);
-      notifyUser("error", error.message || "Error making request", "right");
+      notifyUser(
+        "error",
+        error?.response?.data?.description || "Error making request",
+        "right"
+      );
     }
   };
 
@@ -272,7 +290,11 @@ export const useAuth = () => {
       notifyUser("success", "Sent successfully!", "center");
     } catch (error: any) {
       setLoading(false);
-      notifyUser("error", error.message || "Error making request", "center");
+      notifyUser(
+        "error",
+        error?.response?.data?.description || "Error making request",
+        "center"
+      );
     }
   };
 

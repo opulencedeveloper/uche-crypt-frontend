@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import StrikeThroughText from "@/components/ui/strike-through-text";
 
-import BankNote from "@/assets/images/home/bank-note.png";
+import BankNote from "@/assets/images/home/bank-note.svg";
 
 import { benefits } from "@/resources/course-details/benefits";
 

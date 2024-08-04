@@ -2,8 +2,8 @@
 import { useState } from "react";
 
 import Image from "next/image";
-import Eye from "@/assets/images/auth-layout/eye.png";
-import EyeSlash from "@/assets/images/auth-layout/at-sign.png";
+import Eye from "@/assets/images/auth-layout/eye.svg";
+import EyeSlash from "@/assets/images/auth-layout/at-sign.svg";
 
 interface FormInputProps {
   label: string;

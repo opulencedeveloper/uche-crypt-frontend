@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Frame from "@/assets/images/about/Frame.png";
+import Frame from "@/assets/images/about/frame.svg";
 import Background from "@/assets/images/about/background.png";
-import Signature from "@/assets/images/home/signature.png";
-import UcheCryptText from "@/assets/images/about/signature.png";
+import Signature from "@/assets/images/home/signature.svg";
+import UcheCryptText from "@/assets/images/about/signature.svg";
 import UcheCrypt from "@/assets/images/about/uche-crypt.png";
 import NewsLetter from "@/components/application/home/news-letter";
 

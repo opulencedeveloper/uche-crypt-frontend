@@ -1,10 +1,10 @@
-import EmojiHappy from "@/assets/images/course-details/emoji-happy.png";
-import Book from "@/assets/images/course-details/book.png";
-import AudioSquare from "@/assets/images/course-details/audio-square.png";
-import Star from "@/assets/images/course-details/star.png";
-import TimerStart from "@/assets/images/course-details/timer-start.png";
-import VideoOctagon from "@/assets/images/course-details/video-octagon.png";
-import VideoSquare from "@/assets/images/course-details/video-square.png";
+import EmojiHappy from "@/assets/images/course-details/emoji-happy.svg";
+import Book from "@/assets/images/course-details/book.svg";
+import AudioSquare from "@/assets/images/course-details/audio-square.svg";
+import Star from "@/assets/images/course-details/star.svg";
+import TimerStart from "@/assets/images/course-details/timer-start.svg";
+import VideoOctagon from "@/assets/images/course-details/video-octagon.svg";
+import VideoSquare from "@/assets/images/course-details/video-square.svg";
 
 export const benefits = [
   {

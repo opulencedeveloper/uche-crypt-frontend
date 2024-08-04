@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import SectionTitle from "@/components/ui/section-title";
 
-import ArrowRightGreen from "@/assets/images/home/arrow-narrow-up-right-green.png";
+import ArrowRightGreen from "@/assets/images/home/arrow-narrow-up-right-green.svg";
 
 export default function MyYouTubeChannel({
   youtubeVideos,

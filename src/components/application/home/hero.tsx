@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 import Background from "@/assets/images/home/background.png";
-import BankNote from "@/assets/images/home/bank-note.png";
-import Signature from "@/assets/images/home/signature.png";
+import BankNote from "@/assets/images/home/bank-note.svg";
+import Signature from "@/assets/images/home/signature.svg";
 import Bitcoin from "@/assets/images/home/bitcoin.png";
 import GreenCoin from "@/assets/images/home/green-coin.png";
 import BitcoinPurple from "@/assets/images/home/bitcoin-purple.png";

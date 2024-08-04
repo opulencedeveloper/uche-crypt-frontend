@@ -8,9 +8,8 @@ import Cookies from "js-cookie";
 import GoBackLink from "@/components/ui/go-back-link";
 import CourseOverview from "./course-overview";
 
-import PlayButton from "@/assets/images/course-details/play-cricle.png";
-import CourseImage from "@/assets/images/course-details/course.png";
-import BankNote from "@/assets/images/home/bank-note.png";
+import PlayButton from "@/assets/images/course-details/play-circle.svg";
+import BankNote from "@/assets/images/home/bank-note.svg";
 import Contents from "./contents";
 
 import { useRouter, usePathname } from "next/navigation";

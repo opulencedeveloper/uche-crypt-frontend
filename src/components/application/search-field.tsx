@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import SearchImage from "@/assets/images/search.png";
-import Microphone from "@/assets/images/voice.png";
+import SearchImage from "@/assets/images/search.svg";
+import Microphone from "@/assets/images/voice.svg";
 
 interface Params {
   value: string;

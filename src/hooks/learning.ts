@@ -112,7 +112,11 @@ export const useMyLearning = () => {
         window.open(authorization_url);
       }
     } catch (error: any) {
-      notifyUser("error", error.message || "Something went wrong", "right");
+      notifyUser(
+        "error",
+        error?.response?.data?.description || "Something went wrong",
+        "right"
+      );
       if (error?.response?.status === 401) {
         Cookies.remove("token");
         window.location.href = "/login";

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import Image from "next/image";
-import ArrowRight from "@/assets/images/home/arrow-narrow-up-right.png";
+import ArrowRight from "@/assets/images/home/arrow-narrow-up-right.svg";
 
 export default function RenderCourses({
   courses,

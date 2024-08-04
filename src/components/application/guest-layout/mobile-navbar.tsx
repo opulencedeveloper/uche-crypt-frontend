@@ -5,10 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 import XMark from "@/assets/images/navigation/x-mark.svg";
-import LogoImage from "@/assets/images/navigation/logo.png";
+import LogoImage from "@/assets/images/navigation/logo.svg";
 import HamburberMenuImage from "@/assets/images/navigation/hamburger.svg";
 import ChevronRight from "@/assets/images/contact-dropdown/chevron-right.svg";
-import ArrowUp from "@/assets/images/home/arrow-narrow-up-right.png";
+import ArrowUp from "@/assets/images/home/arrow-narrow-up-right.svg";
 import LogOut from "@/assets/images/profile-dropdown/logout.svg";
 
 import WhatsAppLink from "./whatsapp-link";

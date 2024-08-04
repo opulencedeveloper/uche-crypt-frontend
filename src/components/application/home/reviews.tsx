@@ -2,8 +2,8 @@
 import { usePathname } from "next/navigation";
 
 import Image from "next/image";
-import Avatar from "@/assets/images/reviews/avatar.png";
-import Star from "@/assets/images/reviews/star.png";
+import Avatar from "@/assets/images/reviews/avatar.svg";
+import Star from "@/assets/images/reviews/star.svg";
 
 import reviews from "@/resources/home/reviews.json";
 import SectionTitle from "@/components/ui/section-title";

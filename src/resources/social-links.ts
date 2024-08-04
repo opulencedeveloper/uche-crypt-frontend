@@ -1,8 +1,8 @@
-import FaceBook from "@/assets/images/footer/logos_facebook.png";
-import Discord from "@/assets/images/footer/logos_discord-icon.png";
-import Tiktok from "@/assets/images/footer/logos_tiktok-icon.png";
-import Youtobe from "@/assets/images/footer/logos_youtube-icon.png";
-import LinkedIn from "@/assets/images/footer/devicon_linkedin.png";
+import FaceBook from "@/assets/images/footer/logos_facebook.svg";
+import Discord from "@/assets/images/footer/logos_discord-icon.svg";
+import Tiktok from "@/assets/images/footer/logos_tiktok-icon.svg";
+import Youtobe from "@/assets/images/footer/logos_youtube-icon.svg";
+import LinkedIn from "@/assets/images/footer/devicon_linkedin.svg";
 
 export const socialLinks = [
   {

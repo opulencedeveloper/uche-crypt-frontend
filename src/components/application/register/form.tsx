@@ -16,10 +16,18 @@ export default function RegisterForm() {
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
-  const { register } = useAuth();
+  const { register, notifyUser } = useAuth();
 
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
+    if (password !== confirm_password) {
+      notifyUser(
+        "error",
+        "Password must be the same with confirm password",
+        "right"
+      );
+      return;
+    }
 
     register({ confirm_password, email, password, setLoading, router });
   };
