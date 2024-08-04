@@ -25,7 +25,7 @@ export default function Footer() {
         })}
       </div>
       <p className="text-dark1 text-lg font-normal leading-[27px]">
-        © 2023 - all rights reserved
+        © {new Date().getFullYear()} - all rights reserved
       </p>
     </footer>
   );
