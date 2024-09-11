@@ -8,9 +8,13 @@ export default async function Page() {
   const courses = await getCourses();
   const youtubeCourses = await getYoutubeCourses();
 
+  if (courses) {
+    console.log(courses);
+  }
+
   return (
     <>
-      <Hero />
+      <Hero courses={courses?.data} />
       <MyCourses courses={courses?.data} />
       <Reviews />
       <MyYouTubeChannel youtubeVideos={youtubeCourses?.data} />
@@ -20,28 +24,40 @@ export default async function Page() {
 }
 
 async function getCourses() {
-  const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/courses", {
-    next: {
-      revalidate: 60,
-    },
-  });
+  try {
+    const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/courses", {
+      next: {
+        revalidate: 60,
+      },
+    });
 
-  if (res.ok) {
-    return res.json();
+    if (!res.ok) {
+      throw new Error(`Error fetching courses: ${res.statusText}`);
+    }
+
+    return await res.json();
+  } catch (error) {
+    return null; // Return null or an empty object as a fallback
   }
 }
 
 async function getYoutubeCourses() {
-  const res = await fetch(
-    process.env.NEXT_PUBLIC_BACKEND_URL + "/courses/youtube",
-    {
-      next: {
-        revalidate: 60,
-      },
-    }
-  );
+  try {
+    const res = await fetch(
+      process.env.NEXT_PUBLIC_BACKEND_URL + "/courses/youtube",
+      {
+        next: {
+          revalidate: 60,
+        },
+      }
+    );
 
-  if (res.ok) {
-    return res.json();
+    if (!res.ok) {
+      throw new Error(`Error fetching YouTube courses: ${res.statusText}`);
+    }
+
+    return await res.json();
+  } catch (error) {
+    return null; // Return null or an empty object as a fallback
   }
 }

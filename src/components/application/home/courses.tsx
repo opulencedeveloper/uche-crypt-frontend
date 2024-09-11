@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import BankNote from "@/assets/images/home/bank-note.svg";
 import ArrowRight from "@/assets/images/home/arrow-narrow-up-right.svg";
-import ArrowRightGreen from "@/assets/images/home/arrow-narrow-up-right-green.svg";
 
 import SectionTitle from "@/components/ui/section-title";
 
@@ -12,68 +12,58 @@ interface MyCoursesParams {
 
 export default function MyCourses({ courses }: MyCoursesParams) {
   return (
-    <section className="bg-white w-full py-0 tablet:py-37 my-10 tablet:my-42  tablet:px-67 flex flex-col items-center">
-      <SectionTitle title="My courses" />
-      <h2 className="mt-1 block px-3 tablet:hidden  text-center font-bold text-[28px] leading-[40px] text-amber mb-6">
-        <span className="heading-gradient-text">Excited to dive into</span>{" "}
-        <br /> <span className="heading-gradient-text">the world of</span>{" "}
-        crypto?
-      </h2>
-      <h2 className="mt-1 tablet:block hidden  text-center font-bold text-5xl leading-72 text-amber mb-6">
-        <span className="heading-gradient-text"> Ready to Explore Crypto?</span>
-        <br />
-        Buy my course&quot;!
-      </h2>
-      <div className="w-full overflow-x-auto mb-[43px] scroll-hidden">
-        <div className="w-max pl-[25px] tablet:pl-0 pr-[25px] flex gap-3">
-          {/* Here You map Through the Courses */}
-          {courses.map((item: any) => {
-            return (
-              <div
-                key={item._id}
-                className="w-338 h-394 rounded-xl border border-[#D1D1D6] bg-[#FFFEF9] py-4 px-3 flex flex-col items-center gap-2 justify-between"
-              >
-                <iframe
-                  className="rounded-lg"
-                  width="100%"
-                  height="315"
-                  src={item.video_url}
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+    <section className="bg-white w-full py-8 flex justify-center">
+      <div className="w-[calc(100%-54px)] max-w-[1022px] lg:flex-row flex-col items-center flex justify-between gap-4">
+        <div className="w-full flex flex-col items-center sm:items-start">
+          <SectionTitle title="My courses" />
 
-                <h3 className="font-bold text-black text-lg leading-[27px]">
-                  {item.title}
-                </h3>
-                <p className="text-dark1 font-normal text-sm leading-[21px] pr-2">
-                  {item.description}
-                </p>
-                <div className="w-full border-b border-[#EAEAEA]"></div>
-                <div className="w-full flex items-center justify-between">
-                  <Link
-                    href={`/courses/${item.slug}`}
-                    className="flex items-center gap-1 text-primarygreen1"
-                  >
-                    <p className="text-base font-normal">Learn more</p>{" "}
-                    <Image src={ArrowRight} alt="" />
-                  </Link>
-                  <h2 className="font-bold text-[22px] text-black">
-                    ${item.price}
-                  </h2>
-                </div>
-              </div>
-            );
-          })}
+          <h2 className="mt-2 font-bold md:text-4xl text-xl mini:text-3xl lg:text-5xl sm:text-start text-center lg:leading-72 text-amber mb-4 sm:mb-[31px]">
+            <span className="heading-gradient-text">
+              {" "}
+              Ready to Explore Crypto?
+            </span>
+            <br />
+            Buy my course&quot;!
+          </h2>
+          <Link
+            className="bg-primarygreen1 mb-6 h-[45px] mini:h-fixed52 flex justify-center items-center text-xs mini:text-base font-bold text-white rounded-xl px-34 gap-2"
+            href="/courses"
+          >
+            <Image src={BankNote} alt="" /> Buy my courses
+          </Link>
+        </div>
+        <div className="w-338 max-w-full lg:max-w-none min-w-0 lg:min-w-[338px] h-[450px] mini:h-394 rounded-xl border border-[#D1D1D6] bg-[#FFFEF9] py-4 px-3 flex flex-col items-center gap-2 justify-between">
+          <iframe
+            className="rounded-lg"
+            width="100%"
+            height="315"
+            src={courses[0].video_url}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+
+          <h3 className="font-bold text-black text-lg leading-[27px]">
+            {courses[0].title}
+          </h3>
+          <p className="text-dark1 font-normal text-sm leading-[21px] pr-2">
+            {courses[0].description}
+          </p>
+          <div className="w-full border-b border-[#EAEAEA]"></div>
+          <div className="w-full flex items-center justify-between">
+            <Link
+              href={`/courses/${courses[0].slug}`}
+              className="flex items-center gap-1 text-primarygreen1"
+            >
+              <p className="text-base font-normal">Learn more</p>{" "}
+              <Image src={ArrowRight} alt="" />
+            </Link>
+            <h2 className="font-bold text-[22px] text-black">
+              ${courses[0].price}
+            </h2>
+          </div>
         </div>
       </div>
-      <Link
-        href="/courses"
-        className="flex items-center gap-1 text-primarygreen1"
-      >
-        <p className="text-base font-normal">See all courses</p>{" "}
-        <Image src={ArrowRightGreen} alt="" />
-      </Link>
     </section>
   );
 }

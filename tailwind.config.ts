@@ -20,6 +20,7 @@ const config = {
     extend: {
       screens: {
         tablet: "900px",
+        mini: "320px",
       },
       fontFamily: {
         thin: ["CarosSoftThin", "sans-serif"],

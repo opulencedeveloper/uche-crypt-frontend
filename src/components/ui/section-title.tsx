@@ -10,11 +10,11 @@ export default function SectionTitle({
   return (
     <div
       style={{ backgroundColor: background ? background : "#0066330d" }}
-      className="px-6 h-35 rounded-full flex justify-center items-center"
+      className="sm:px-6 px-4 h-35 rounded-full flex justify-center items-center"
     >
       <p
         style={{ color: color ? color : "#006633" }}
-        className="text-base tablet:text-lg font-normal"
+        className="mini:text-sm text-xs sm:text-lg font-normal"
       >
         {title}
       </p>
