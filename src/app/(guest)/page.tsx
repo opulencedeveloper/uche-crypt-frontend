@@ -8,10 +8,6 @@ export default async function Page() {
   const courses = await getCourses();
   const youtubeCourses = await getYoutubeCourses();
 
-  if (courses) {
-    console.log(courses);
-  }
-
   return (
     <>
       <Hero courses={courses?.data} />
@@ -26,9 +22,7 @@ export default async function Page() {
 async function getCourses() {
   try {
     const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/courses", {
-      next: {
-        revalidate: 60,
-      },
+      cache: "no-store",
     });
 
     if (!res.ok) {

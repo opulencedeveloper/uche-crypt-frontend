@@ -16,23 +16,25 @@ export default function RenderCourses({
       {courses.map((item: any) => {
         return (
           <div
-            key={item._id}
+            key={item?._id}
             className=" mini:h-394 h-max rounded-xl border border-[#D1D1D6] bg-white p-2 mini:p-4 flex flex-col items-center gap-2 justify-between"
           >
             <iframe
               className="rounded-[6px]"
               width="100%"
               height="168"
-              src={item.video_url}
+              src={item?.video_url}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
             <h3 className="font-bold text-black mini:text-lg text-sm mini:leading-[27px] pr-4">
-              {item.title}
+              {item?.title}
             </h3>
             <p className="text-dark1 font-normal text-xs mini:text-sm mini:leading-[21px] pr-2">
-              {item.description}
+              {item?.description?.length < 156
+                ? item.description
+                : item?.description?.slice(0, 156) + "..."}
             </p>
             <div className="w-full border-b border-[#EAEAEA]"></div>
             <div className="w-full flex items-center justify-between">

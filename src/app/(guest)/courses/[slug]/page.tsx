@@ -10,7 +10,7 @@ export default async function Page({ params }: any) {
     <section className="w-full">
       {course ? (
         <>
-          <CourseContent course={course.data} />
+          <CourseContent course={course?.data} />
           <Reviews />
           <section className="bg-white mb-42 w-full flex justify-center">
             <div className="w-full max-w-[1150px] flex flex-col">
@@ -35,19 +35,15 @@ async function getCourse(slug: string) {
     const res = await fetch(
       process.env.NEXT_PUBLIC_BACKEND_URL + "/course/" + slug,
       {
-        next: {
-          revalidate: 60,
-        },
+        cache: "no-store",
       }
     );
     if (!res.ok) {
-      console.error("Failed to fetch course:", res.status, res.statusText);
       return null; // Fallback to null if course fetching fails
     }
 
     return res.json();
   } catch (error) {
-    console.error("Error fetching course:", error);
     return null; // Return null in case of error
   }
 }

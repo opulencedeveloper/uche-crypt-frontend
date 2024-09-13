@@ -46,8 +46,10 @@ export default function MyCourses({ courses }: MyCoursesParams) {
           <h3 className="font-bold text-black text-sm mini:text-lg mini:leading-[27px]">
             {courses[0].title}
           </h3>
-          <p className="text-dark1 font-normal text-xs mini:text-sm mini:leading-[21px] pr-2">
-            {courses[0].description}
+          <p className="text-dark1 truncate-lines font-normal text-xs mini:text-sm mini:leading-[21px] pr-2">
+            {courses[0]?.description?.length < 156
+              ? courses[0].description
+              : courses[0]?.description?.slice(0, 156) + "..."}
           </p>
           <div className="w-full border-b border-[#EAEAEA]"></div>
           <div className="w-full flex items-center justify-between">
