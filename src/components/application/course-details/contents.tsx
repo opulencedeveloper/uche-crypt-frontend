@@ -26,7 +26,7 @@ export default function Contents({
         Course content
       </h3>
       <Accordion type="single" collapsible>
-        {contents.map((item: any, index: number) => {
+        {contents?.map((item: any, index: number) => {
           return (
             <AccordionItem
               key={index}
@@ -48,7 +48,7 @@ export default function Contents({
               </AccordionTrigger>
               <AccordionContent className="w-full">
                 <ul className="w-full flex flex-col gap-1 list-inside list-disc">
-                  {item.modules.map((module: any, moduleIndex: number) => {
+                  {item?.modules?.map((module: any, moduleIndex: number) => {
                     return (
                       <li
                         key={moduleIndex}
