@@ -36,7 +36,7 @@ const ResendOTP: React.FC<Params> = ({ setLoading, email }) => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center mt-4 text-sm font-normal text-[#626D7D]">
+    <div className="w-full flex flex-wrap justify-center items-center mt-4 text-[11px] mini:text-sm font-normal text-[#626D7D]">
       Didn’t receive an Email?&nbsp;
       <button
         className={`text-[#06C270] ${isCounting ? "cursor-not-allowed" : ""}`}

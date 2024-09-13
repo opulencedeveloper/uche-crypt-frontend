@@ -142,6 +142,65 @@ export const useAuth = () => {
     }
   };
 
+  const generateGoogleAuthLink = async () => {
+    const config = {
+      url: "/auth/google",
+      method: "GET",
+    };
+    try {
+      const res = await axios.request(config);
+      let url = res?.data?.data?.authorizeUrl;
+      if (url) {
+        window.open(url, "_blank");
+      }
+    } catch (error: any) {
+      notifyUser(
+        "error",
+        error?.response?.data?.description || "Failed To Login",
+        "right"
+      );
+    }
+  };
+
+  const signInWithGoogle = async ({
+    setLoading,
+    code,
+    router,
+  }: {
+    setLoading: any;
+    code: string;
+    router: any;
+  }) => {
+    const config = {
+      url: "/google/signin?code=" + code,
+      method: "POST",
+    };
+    try {
+      setLoading(true);
+      console.log(config);
+
+      const res = await axios.request(config);
+      setLoading(false);
+      if (res?.data?.description === "Logged in successfully") {
+        notifyUser("success", "Logged in successfully", "right");
+        await fetchUser({ token: res.data.data.token });
+
+        let redirectionLink = Cookies.get("redirectionLink");
+        Cookies.set("token", res.data.data.token || "");
+
+        router.push(redirectionLink || "/my-learning");
+        Cookies.remove("redirectionLink");
+      }
+    } catch (error: any) {
+      setLoading(false);
+      notifyUser(
+        "error",
+        error?.response?.data?.description || "Failed To Login",
+        "right"
+      );
+    }
+  };
+
   const fetchUser = async ({ token }: fetchUserParams) => {
     const config = {
       url: "/user",
@@ -307,5 +366,7 @@ export const useAuth = () => {
     resendVerificationCode,
     notifyUser,
     fetchUser,
+    generateGoogleAuthLink,
+    signInWithGoogle,
   };
 };

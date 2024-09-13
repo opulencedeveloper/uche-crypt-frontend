@@ -16,12 +16,12 @@ export default function Reviews() {
       {pathname === "/" ? (
         <SectionTitle title="Reviews" />
       ) : (
-        <p className="text-center text-[#6B7588] text-base tablet:text-[22px] font-normal leading-[33px]">
+        <p className="text-center text-[#6B7588] text-sm mini:text-base tablet:text-[22px] font-normal mini:leading-[33px]">
           Testimonies
         </p>
       )}
 
-      <h2 className="mt-1 px-3 tablet:px-0 text-center font-bold text-[28px] tablet:text-5xl leading-[40px] tablet:leading-72 text-primarygreen1 tablet:mb-4 mb-[23px]">
+      <h2 className="mt-1 px-3 tablet:px-0 text-center font-bold text-xl mini:text-[28px] tablet:text-5xl mini:leading-[40px] tablet:leading-72 text-primarygreen1 tablet:mb-4 mb-[23px]">
         What <span className="text-amber">learners</span>{" "}
         <span className="heading-gradient-text"> are saying</span>
       </h2>
@@ -31,12 +31,12 @@ export default function Reviews() {
             return (
               <div
                 key={item.name}
-                className="bg-white border   border-[#D1D1D6] rounded-xl px-3 py-[18px] w-[319px] h-40 flex flex-col justify-between"
+                className="bg-white border max-w-[calc(100vw-39px)]   border-[#D1D1D6] rounded-xl px-3 py-[18px] w-[319px] h-max mini:h-40 flex flex-col justify-between"
               >
-                <div className="flex gap-2 items-start">
+                <div className="flex gap-2 items-start mb-3 mini:mb-0">
                   <Image src={Avatar} alt="" className="w-8 h-8 rounded-full" />
                   <div className="flex flex-col">
-                    <h2 className="text-[#3A3A3C] font-bold text-lg leading-[27px]">
+                    <h2 className="text-[#3A3A3C] font-bold text-sm mini:text-lg mini:leading-[27px]">
                       {item.name}
                     </h2>
                     <div className="flex items-center">
@@ -47,7 +47,7 @@ export default function Reviews() {
                     </div>
                   </div>
                 </div>
-                <p className="text-dark1 text-sm leading-[21px] font-normal">
+                <p className="text-dark1 text-xs mini:text-sm mini:leading-[21px] font-normal">
                   {item.message}
                 </p>
               </div>

@@ -32,21 +32,21 @@ export default function MyCourses({ courses }: MyCoursesParams) {
             <Image src={BankNote} alt="" /> Buy my courses
           </Link>
         </div>
-        <div className="w-338 max-w-full lg:max-w-none min-w-0 lg:min-w-[338px] h-[450px] mini:h-394 rounded-xl border border-[#D1D1D6] bg-[#FFFEF9] py-4 px-3 flex flex-col items-center gap-2 justify-between">
+        <div className="w-338 max-w-full lg:max-w-none min-w-0 lg:min-w-[338px] h-max mini:h-394 rounded-xl border border-[#D1D1D6] bg-[#FFFEF9] p-2 mini:py-4 mini:px-3 flex flex-col items-center gap-2 justify-between">
           <iframe
             className="rounded-lg"
             width="100%"
-            height="315"
+            height="168"
             src={courses[0].video_url}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
 
-          <h3 className="font-bold text-black text-lg leading-[27px]">
+          <h3 className="font-bold text-black text-sm mini:text-lg mini:leading-[27px]">
             {courses[0].title}
           </h3>
-          <p className="text-dark1 font-normal text-sm leading-[21px] pr-2">
+          <p className="text-dark1 font-normal text-xs mini:text-sm mini:leading-[21px] pr-2">
             {courses[0].description}
           </p>
           <div className="w-full border-b border-[#EAEAEA]"></div>
@@ -55,10 +55,10 @@ export default function MyCourses({ courses }: MyCoursesParams) {
               href={`/courses/${courses[0].slug}`}
               className="flex items-center gap-1 text-primarygreen1"
             >
-              <p className="text-base font-normal">Learn more</p>{" "}
+              <p className="mini:text-base text-sm font-normal">Learn more</p>{" "}
               <Image src={ArrowRight} alt="" />
             </Link>
-            <h2 className="font-bold text-[22px] text-black">
+            <h2 className="font-bold text-lg mini:text-[22px] text-black">
               ${courses[0].price}
             </h2>
           </div>

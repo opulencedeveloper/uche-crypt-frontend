@@ -17,7 +17,7 @@ export default async function Page({ params }: any) {
               <h2 className="text-black px-6 xl:px-0 font-bold text-[28px] leading-[40px] tablet:text-[32px] tablet:leading-[48px] mb-3 lg:mb-8">
                 Other courses
               </h2>
-              <RenderCourses courses={courses?.data} />
+              <RenderCourses courses={courses?.data || []} />
             </div>
           </section>
         </>
@@ -31,27 +31,43 @@ export default async function Page({ params }: any) {
 }
 
 async function getCourse(slug: string) {
-  const res = await fetch(
-    process.env.NEXT_PUBLIC_BACKEND_URL + "/course/" + slug,
-    {
-      next: {
-        revalidate: 60,
-      },
+  try {
+    const res = await fetch(
+      process.env.NEXT_PUBLIC_BACKEND_URL + "/course/" + slug,
+      {
+        next: {
+          revalidate: 60,
+        },
+      }
+    );
+    if (!res.ok) {
+      console.error("Failed to fetch course:", res.status, res.statusText);
+      return null; // Fallback to null if course fetching fails
     }
-  );
-  if (res.ok) {
+
     return res.json();
+  } catch (error) {
+    console.error("Error fetching course:", error);
+    return null; // Return null in case of error
   }
 }
 
 async function getCourses() {
-  const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/courses", {
-    next: {
-      revalidate: 60,
-    },
-  });
+  try {
+    const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/courses", {
+      next: {
+        revalidate: 60,
+      },
+    });
 
-  if (res.ok) {
+    if (!res.ok) {
+      console.error("Failed to fetch courses:", res.status, res.statusText);
+      return null; // Fallback to null if courses fetching fails
+    }
+
     return res.json();
+  } catch (error) {
+    console.error("Error fetching courses:", error);
+    return null; // Return null in case of error
   }
 }

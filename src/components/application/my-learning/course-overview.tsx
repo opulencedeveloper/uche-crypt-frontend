@@ -52,7 +52,7 @@ export default function CourseOverview({ slug }: { slug: string }) {
         </div>
       )}
       <div className="w-full flex flex-col">
-        <h2 className="text-black px-6 xl-px-0 font-bold text-[32px] leading-[48px] mb-8">
+        <h2 className="text-black px-6 xl-px-0 font-bold text-xl mini:text-[32px] mini:leading-[48px] mb-8">
           Other courses
         </h2>
         <RenderCourses courses={otherCourses} />

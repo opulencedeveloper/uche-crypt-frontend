@@ -43,15 +43,17 @@ export default function EmailVerificationForm() {
       className="w-[375px] max-w-full h-max rounded-xl bg-white py-[24px] px-5 sm:px-8 flex flex-col"
     >
       <div className="flex mb-1 items-center gap-1">
-        <h3 className="text-dark1 font-bold text-xl sm:text-[22px] leading-[33px]">
+        <h3 className="text-dark1 font-bold text-[13px] mini:text-xl sm:text-[22px] leading-6 mini:leading-[33px]">
           Verify your Email
         </h3>
       </div>
-      <p className="text-[#6B7588] font-normal text-sm mb-[23px]">
+      <p className="text-[#6B7588] font-normal text-[10px] mini:text-sm mb-3 mini:mb-[23px]">
         Please enter the 4 digit OTP code sent to your mail &#40;{email}
         &#41;
       </p>
-      <p className="text-sm text-[#171717] font-medium mb-2">OTP Code</p>
+      <p className="mini:text-sm text-xs text-[#171717] font-medium mb-2">
+        OTP Code
+      </p>
       <OTPInput
         length={4}
         loading={loading}

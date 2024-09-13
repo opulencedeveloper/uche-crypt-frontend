@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="w-full tablet:py-[65px] py-[34px] flex flex-col items-center">
       <SectionTitle background="#CFD3A9" color="#006633" title="Link me up" />
-      <h2 className="mt-4 text-center tablet:max-w-[532px] max-w-full leading-[40px] text-[28px] font-bold text-primarygreen1 mb-8">
+      <h2 className="mt-4 text-center tablet:max-w-[532px] max-w-full mini:leading-[40px] text-xl mini:text-[28px] font-bold text-primarygreen1 mb-8">
         Let’s stay connected, follow me for more updates
       </h2>
       <div className="flex items-center gap-6 mb-8">

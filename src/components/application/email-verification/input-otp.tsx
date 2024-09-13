@@ -103,7 +103,7 @@ const OTPInput: React.FC<OTPInputProps> = ({
             onKeyDown={(e) => handleKeyDown(e, index)}
             onPaste={handlePaste}
             ref={(el: any) => (inputRefs.current[index] = el!)}
-            className={`w-full text-base border border-[#8F90A6] outline-none focus:outline-none font-medium placeholder:text-[#D2D2D2] flex items-center justify-center text-center h-11 rounded-2xl ${
+            className={`w-full text-base border border-[#8F90A6] outline-none focus:outline-none font-medium placeholder:text-[#D2D2D2] flex items-center justify-center text-center h-8 mini:h-11 rounded-2xl ${
               value ? styles.filled : ""
             }`}
             disabled={loading}

@@ -38,14 +38,14 @@ export default function RegisterForm() {
       className="w-[375px] max-w-full h-max rounded-xl bg-white py-[18px] px-5 sm:px-8 flex flex-col"
     >
       <div className="flex mb-1 items-center gap-1">
-        <h3 className="text-dark1 font-bold text-xl sm:text-[22px] leading-[33px]">
+        <h3 className="text-dark1 font-bold text-[13px] mini:text-xl sm:text-[22px] leading-6 mini:leading-[33px]">
           Sign Up
         </h3>
       </div>
-      <p className="text-[#6B7588] font-normal text-sm mb-[23px]">
+      <p className="text-[#6B7588] font-normal text-[11px] mini:text-sm mb-3 mini:mb-[23px]">
         Sign up and get an exclusive courses
       </p>
-      <div className="w-full flex flex-col gap-3 mb-[23px]">
+      <div className="w-full flex flex-col gap-2 mini:gap-3 mb-3 mini:mb-[23px]">
         <AuthFormInput
           label="Email"
           onChange={(e) => setEmail(e.target.value)}
@@ -70,7 +70,7 @@ export default function RegisterForm() {
       </div>
       <button
         type="submit"
-        className="w-full h-12 mb-[18px] rounded-xl text-white font-medium text-base flex justify-center items-center bg-primarygreen1"
+        className="w-full h-11 mini:h-12 rounded-xl text-white font-medium text-[9px] mini:text-base flex justify-center items-center bg-primarygreen1"
       >
         {loading ? (
           <Image src={RollingSpinner} alt="" className=" h-7 w-max" />
@@ -78,7 +78,7 @@ export default function RegisterForm() {
           " Continue"
         )}
       </button>
-      <div className="w-full justify-center flex items-center font-medium text-sm sm:text-base leading-6">
+      <div className="w-full justify-center mt-3 flex flex-wrap items-center font-medium text-[11px] mini:text-sm sm:text-base leading-6">
         <p className="text-dark1">Already have an account? </p>&nbsp;
         <Link href="/login" className="text-primarygreen1">
           Sign In

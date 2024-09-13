@@ -27,11 +27,13 @@ const AuthFormInput: React.FC<FormInputProps> = ({
   };
 
   return (
-    <div className="w-full flex flex-col gap-1.5">
-      <p className="text-sm font-medium leading-[21px] text-dark1">{label}</p>
-      <div className={`w-full relative flex items-center h-[53px]`}>
+    <div className="w-full flex flex-col gap-1 mini:gap-1.5">
+      <p className="mini:text-sm text-[11px] font-medium leading-3 mini:leading-[21px] text-dark1">
+        {label}
+      </p>
+      <div className={`w-full relative flex items-center h-11 mini:h-[53px]`}>
         <input
-          className={`w-full h-full auth-input rounded-xl bg-white outline-none py-[9px] placeholder:text-[#828282]  text-sm font-normal text-[#828282] ${
+          className={`w-full h-full auth-input rounded-xl bg-white outline-none py-[9px] placeholder:text-[#828282] text-[11px] mini:text-sm font-normal text-[#828282] ${
             type === "password" ? "px-4" : "pl-4 pr-[52px]"
           }`}
           placeholder={placeholder}

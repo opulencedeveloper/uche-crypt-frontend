@@ -15,7 +15,7 @@ export default function EnrolledCourses() {
     <>
       {" "}
       <div className="w-full px-6 xl:px-0  flex justify-between mb-3 mt-6 lg:mt-8">
-        <h2 className="text-black font-bold tablet:text-[32px] text-[28px] leading-10 tablet:leading-[48px] ">
+        <h2 className="text-black font-bold tablet:text-[32px] text-xl mini:text-[28px] mini:leading-10 tablet:leading-[48px] ">
           My learning{" "}
           <span className="text-[#6B7588]">({courses?.length || 0})</span>
         </h2>

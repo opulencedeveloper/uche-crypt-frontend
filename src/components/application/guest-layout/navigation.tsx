@@ -28,7 +28,7 @@ export default function Navigation() {
     <nav className="w-full h-[68px] tablet:h-84 px-6 tablet:px-16 flex justify-between items-center bg-honeydew">
       <Link href="/">
         <Image
-          className="tablet:w-[199.36px] tablet:h-[21px] h-[16.64px] w-[158px]"
+          className="tablet:w-[199.36px] tablet:h-[21px] h-max w-[100px] mini:h-[16.64px] mini:w-[158px]"
           width={199.36}
           height={21}
           src={LogoImage}
@@ -38,7 +38,10 @@ export default function Navigation() {
 
       {/* Nav Links */}
       <div className="tablet:flex hidden items-center gap-6">
-        <Link className="font-normal text-base text-dark1" href="/about">
+        <Link
+          className="font-normal text-base hover:text-[#006633] text-dark1"
+          href="/about"
+        >
           About me
         </Link>
 

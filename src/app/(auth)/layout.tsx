@@ -42,7 +42,13 @@ export default function AuthenticationLayout({
           <GoBackLink />
         </div>
         <Link href="/">
-          <Image width={199.36} height={21} src={LogoImage} alt="Logo Image" />
+          <Image
+            width={199.36}
+            height={21}
+            className="w-max mini:h-[21px] h-3"
+            src={LogoImage}
+            alt="Logo Image"
+          />
         </Link>
       </div>
       <Image
@@ -53,9 +59,9 @@ export default function AuthenticationLayout({
       <Image
         src={CryptoExpertImage}
         alt=""
-        className="z-20 tablet:w-[130px] w-[125px] fixed bottom-5 tablet:top-[calc(50%-45px)] left-[calc(50vw-62.5px)] tablet:left-[124px]"
+        className="z-20 tablet:w-[130px] w-[125px] fixed hidden tablet:block top-[calc(50%-45px)] left-[124px]"
       />
-      <div className="bg-transparent px-5 tablet:px-0 absolute z-40 tablet:top-[133px] w-full h-[calc(100%-250px)] flex items-start tablet:h-max">
+      <div className="bg-transparent px-5 tablet:px-0 absolute pb-[54px] z-40 tablet:top-[133px] w-full h-[calc(100%-250px)] flex items-start tablet:h-max">
         {children}
       </div>
     </main>

@@ -44,15 +44,15 @@ export default function ResetPasswordForm() {
       onSubmit={handleFormSubmit}
       className={` h-max rounded-xl bg-white px-5  sm:px-8 flex flex-col max-w-full w-[375px] py-[18px]`}
     >
-      <div className="flex mb-[23px] items-center gap-1">
+      <div className="flex mb-3 mini:mb-[23px] items-center gap-1">
         <h3
-          className={`text-dark1 w-full font-bold text-xl sm:text-[22px] leading-[33px] `}
+          className={`text-dark1 w-full font-bold text-[13px] mini:text-xl sm:text-[22px] leading-6 mini:leading-[33px] `}
         >
           Create password
         </h3>
       </div>
 
-      <div className="w-full flex flex-col gap-3 mb-[23px]">
+      <div className="w-full flex flex-col gap-3 mb-3 mini:mb-[23px]">
         <AuthFormInput
           label="New Password"
           onChange={(e) => setNewPassword(e.target.value)}
@@ -70,7 +70,7 @@ export default function ResetPasswordForm() {
       </div>
       <button
         type="submit"
-        className="w-full h-12 rounded-xl text-white font-medium text-base flex justify-center items-center bg-primarygreen1"
+        className="w-full h-11 mini:h-12 rounded-xl text-white font-medium text-[12px] mini:text-base flex justify-center items-center bg-primarygreen1"
       >
         {loading ? (
           <Image src={RollingSpinner} alt="" className=" h-7 w-max" />

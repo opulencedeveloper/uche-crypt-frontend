@@ -5,24 +5,30 @@ export default async function Page() {
   const courses = await getCourses();
 
   return (
-    <section className="w-full mt-[38px] flex justify-center pb-8 sm:pb-[142px]">
+    <section className="w-full mt-6 mini:mt-[38px] flex justify-center pb-8 sm:pb-[142px]">
       <div className="flex flex-col w-full max-w-[1150px]">
         <GoBackLink />
 
-        <AllCourses courses={courses?.data} />
+        <AllCourses courses={courses?.data || []} />
       </div>
     </section>
   );
 }
 
 async function getCourses() {
-  const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/courses", {
-    next: {
-      revalidate: 60,
-    },
-  });
+  try {
+    const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/courses", {
+      next: {
+        revalidate: 60,
+      },
+    });
 
-  if (res.ok) {
+    if (!res.ok) {
+      return null;
+    }
+
     return res.json();
+  } catch (error) {
+    return null;
   }
 }

@@ -26,7 +26,7 @@ export default function NewsLetter() {
       ></div>
       <div className="w-[413px] z-20 max-w-full flex flex-col items-center">
         <SectionTitle title="Newsletter" background="#00663330" color="white" />
-        <h2 className="mt-1 text-center leading-[40px] text-[28px] font-bold text-white mb-8">
+        <h2 className="mt-1 text-center mini:leading-[40px] text-xl mini:text-[28px] font-bold text-white mb-8">
           Get latest with <span className="text-[#FEDA79]">UcheCrypt</span>{" "}
           <br className="block tablet:hidden" /> Vibe, Join community.
         </h2>

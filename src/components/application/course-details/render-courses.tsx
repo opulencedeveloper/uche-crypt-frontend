@@ -17,7 +17,7 @@ export default function RenderCourses({
         return (
           <div
             key={item._id}
-            className=" h-394 rounded-xl border border-[#D1D1D6] bg-white p-4 flex flex-col items-center gap-2 justify-between"
+            className=" mini:h-394 h-max rounded-xl border border-[#D1D1D6] bg-white p-2 mini:p-4 flex flex-col items-center gap-2 justify-between"
           >
             <iframe
               className="rounded-[6px]"
@@ -28,10 +28,10 @@ export default function RenderCourses({
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-            <h3 className="font-bold text-black text-lg leading-[27px] pr-4">
+            <h3 className="font-bold text-black mini:text-lg text-sm mini:leading-[27px] pr-4">
               {item.title}
             </h3>
-            <p className="text-dark1 font-normal text-sm leading-[21px] pr-2">
+            <p className="text-dark1 font-normal text-xs mini:text-sm mini:leading-[21px] pr-2">
               {item.description}
             </p>
             <div className="w-full border-b border-[#EAEAEA]"></div>
@@ -42,13 +42,13 @@ export default function RenderCourses({
                 }
                 className="flex items-center gap-1 text-primarygreen1"
               >
-                <p className="text-base font-normal">
+                <p className="mini:text-base text-sm font-normal">
                   {bought ? "Go to course" : "Learn more"}
                 </p>{" "}
                 <Image src={ArrowRight} alt="" />
               </Link>
               {!bought && (
-                <h2 className="font-bold text-[22px] text-black">
+                <h2 className="font-bold text-lg mini:text-[22px] text-black">
                   ${item.price}
                 </h2>
               )}

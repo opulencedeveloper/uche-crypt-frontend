@@ -35,9 +35,9 @@ export default function ForgotPasswordForm() {
         linkSent ? "w-[455px] py-6" : "w-[375px] py-[18px]"
       }`}
     >
-      <div className="flex mb-[23px] items-center gap-1">
+      <div className="flex mb-3 mini:mb-[23px] items-center gap-1">
         <h3
-          className={`text-dark1 w-full font-bold text-xl sm:text-[22px] leading-[33px] ${
+          className={`text-dark1 w-full font-bold text-[13px] mini:text-xl sm:text-[22px] leading-6 mini:leading-[33px] ${
             linkSent ? "text-center" : "text-start"
           }`}
         >
@@ -45,7 +45,7 @@ export default function ForgotPasswordForm() {
         </h3>
       </div>
       {linkSent ? (
-        <div className="text-[#6B7588] font-normal leading-6 text-base text-center">
+        <div className="text-[#6B7588] font-normal leading-3 mini:leading-6 text-[13px] mini:text-base text-center">
           We’ve sent an email to {email}. <br />
           Click the link in the email to reset your password. <br /> If you
           don’t see the email,{" "}
@@ -56,7 +56,7 @@ export default function ForgotPasswordForm() {
         </div>
       ) : (
         <>
-          <div className="w-full flex flex-col gap-3 mb-[23px]">
+          <div className="w-full flex flex-col gap-3 mb-3 mini:mb-[23px]">
             <AuthFormInput
               label="Email"
               onChange={(e) => setEmail(e.target.value)}
@@ -67,7 +67,7 @@ export default function ForgotPasswordForm() {
           </div>
           <button
             type="submit"
-            className="w-full h-12 rounded-xl text-white font-medium text-base flex justify-center items-center bg-primarygreen1"
+            className="w-full h-11 mini:h-12 rounded-xl text-white font-medium text-[9px] mini:text-base flex justify-center items-center bg-primarygreen1"
           >
             {loading ? (
               <Image src={RollingSpinner} alt="" className=" h-7 w-max" />

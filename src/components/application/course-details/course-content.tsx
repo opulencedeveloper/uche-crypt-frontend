@@ -55,7 +55,7 @@ export default function CourseContent({ course }: Params) {
 
   return (
     <>
-      <div className="w-screen h-[72px] bg-primarygreen1 fixed bottom-0 left-0 lg:hidden flex justify-between items-center px-6">
+      <div className="w-screen z-30 h-[72px] bg-primarygreen1 fixed bottom-0 left-0 lg:hidden flex justify-between items-center px-6">
         <h1 className="text-[32px] leading-[48px] text-[#57EBA1] font-bold">
           ${course.price}
         </h1>
@@ -97,7 +97,7 @@ export default function CourseContent({ course }: Params) {
 
           <div className="w-full px-6 xl:px-0">
             <iframe
-              className="h-[221px] lg:h-[467px] rounded-[6px] lg:rounded-[22px] mb-6 lg:mb-8"
+              className="mini:h-[221px] h-max lg:h-[467px] rounded-[6px] lg:rounded-[22px] mb-6 lg:mb-8"
               width="100%"
               src={course.video_url}
               title="YouTube video player"

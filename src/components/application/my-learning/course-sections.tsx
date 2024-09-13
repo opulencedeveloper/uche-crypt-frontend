@@ -38,11 +38,11 @@ export default function CourseSections({
 
   return (
     <div className="lg:w-[calc(100%-533px)] mt-3 lg:mt-0 px-2 lg:px-0 w-full border border-[#D1D1D6] rounded-xl flex flex-col overflow-hidden">
-      <div className="w-full pb-8 pt-[40px] px-4 lg:px-[41px] border-b border-[#C7C9D9] flex flex-col">
-        <h1 className="font-bold text-black text-lg lg:text-[28px] leading-7 lg:leading-[42px]">
+      <div className="w-full pb-8 pt-[40px] px-2 mini:px-4 lg:px-[41px] border-b border-[#C7C9D9] flex flex-col">
+        <h1 className="font-bold text-black text-base mini:text-lg lg:text-[28px] mini:leading-7 lg:leading-[42px]">
           {course?.course_title}
         </h1>
-        <div className="mt-8 h-9 w-full tablet:px-[17px] block lg:hidden">
+        <div className="mini:mt-8 mt-4 h-9 w-full tablet:px-[17px] block lg:hidden">
           <SearchField value={value} setValue={setValue} />
         </div>
       </div>
@@ -53,14 +53,14 @@ export default function CourseSections({
               <AccordionItem
                 key={index}
                 value={String(index)}
-                className="rounded-xl mb-2 border border-[#D1D1D6] pb-2 px-6"
+                className="rounded-xl mb-2 border border-[#D1D1D6] pb-2 px-3 mini:px-6"
               >
                 <AccordionTrigger className="items-start">
                   <div className="flex flex-col gap-3 items-start">
-                    <p className="text-black font-normal text-lg">
+                    <p className="text-black font-normal text-base mini:text-lg">
                       Chapter {index + 1}
                     </p>
-                    <h3 className="text-black text-start font-bold text-lg">
+                    <h3 className="text-black text-start font-bold text-base mini:text-lg">
                       {item?.title}
                     </h3>
                   </div>
@@ -71,7 +71,7 @@ export default function CourseSections({
                     className="shrink-0 transition-transform duration-200"
                   />
                 </AccordionTrigger>
-                <AccordionContent className="w-full flex flex-col gap-3">
+                <AccordionContent className="w-full flex flex-col gap-2 mini:gap-3">
                   {item?.modules?.map((video: any, index: number) => {
                     return (
                       <div
@@ -84,13 +84,13 @@ export default function CourseSections({
                         }`}
                       >
                         <div className="flex items-center gap-3">
-                          <p className="text-xs font-normal text-black leading-6">
+                          <p className="mini:text-xs text-[8px] font-normal text-black mini:leading-6">
                             Module {index + 1}
                           </p>
                           <div className="h-8 border-r border-[#C7C9D9]"></div>
                           <div className="flex gap-1 items-center">
                             <div
-                              className={`min-w-6 max-h-6 h-6 rounded-full flex text-white justify-center items-center ${
+                              className={`mini:min-w-6 min-w-3.5 max-h-6 mini:h-6 h-3.5 rounded-full flex text-white justify-center items-center ${
                                 video?.watched
                                   ? "bg-primarygreen1"
                                   : "bg-[#828282]"
@@ -98,12 +98,12 @@ export default function CourseSections({
                             >
                               <Check width={16} height={16} />
                             </div>
-                            <p className="text-black text-base leading-6 font-normal">
+                            <p className="text-black text-[10px] mini:text-base mini:leading-6 font-normal">
                               {video?.title}
                             </p>
                           </div>
                         </div>
-                        <p className="text-[#8F90A6] font-normal text-xs leading-[18px]">
+                        <p className="text-[#8F90A6] font-normal text-[8px] mini:text-xs mini:leading-[18px]">
                           4 mins video
                         </p>
                       </div>

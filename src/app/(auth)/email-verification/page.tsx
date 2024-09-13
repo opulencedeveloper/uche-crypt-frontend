@@ -2,7 +2,7 @@ import EmailVerificationForm from "@/components/application/email-verification/f
 
 export default function Page() {
   return (
-    <section className="w-full h-max overflow-y-auto max-h-full flex flex-col items-center">
+    <section className="w-full h-max flex flex-col items-center">
       <EmailVerificationForm />
     </section>
   );

@@ -10,7 +10,7 @@ export default function GoBackLink() {
   return (
     <button
       onClick={() => router.back()}
-      className="flex w-max items-center gap-1 text-dark1 text-base font-normal pl-6 xl:pl-0"
+      className="flex w-max items-center gap-1 text-dark1 text-sm mini:text-base font-normal pl-6 xl:pl-0"
     >
       <Image src={ArrowLeft} alt="" /> Back
     </button>
