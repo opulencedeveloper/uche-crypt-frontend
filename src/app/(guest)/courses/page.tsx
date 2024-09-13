@@ -1,6 +1,8 @@
 import GoBackLink from "@/components/ui/go-back-link";
 import AllCourses from "@/components/application/course-details/all-courses";
 
+import { getCourses } from "@/resources/home/get-courses";
+
 export default async function Page() {
   const courses = await getCourses();
 
@@ -13,20 +15,4 @@ export default async function Page() {
       </div>
     </section>
   );
-}
-
-async function getCourses() {
-  try {
-    const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/courses", {
-      cache: "no-store",
-    });
-
-    if (!res.ok) {
-      return null;
-    }
-
-    return res.json();
-  } catch (error) {
-    return null;
-  }
 }

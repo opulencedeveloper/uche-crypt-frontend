@@ -1,6 +1,7 @@
 import Reviews from "@/components/application/home/reviews";
 import RenderCourses from "@/components/application/course-details/render-courses";
 import CourseContent from "@/components/application/course-details/course-content";
+import { getCourses, getCourse } from "@/resources/home/get-courses";
 
 export default async function Page({ params }: any) {
   const courses = await getCourses();
@@ -28,42 +29,4 @@ export default async function Page({ params }: any) {
       )}
     </section>
   );
-}
-
-async function getCourse(slug: string) {
-  try {
-    const res = await fetch(
-      process.env.NEXT_PUBLIC_BACKEND_URL + "/course/" + slug,
-      {
-        cache: "no-store",
-      }
-    );
-    if (!res.ok) {
-      return null; // Fallback to null if course fetching fails
-    }
-
-    return res.json();
-  } catch (error) {
-    return null; // Return null in case of error
-  }
-}
-
-async function getCourses() {
-  try {
-    const res = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + "/courses", {
-      next: {
-        revalidate: 60,
-      },
-    });
-
-    if (!res.ok) {
-      console.error("Failed to fetch courses:", res.status, res.statusText);
-      return null; // Fallback to null if courses fetching fails
-    }
-
-    return res.json();
-  } catch (error) {
-    console.error("Error fetching courses:", error);
-    return null; // Return null in case of error
-  }
 }

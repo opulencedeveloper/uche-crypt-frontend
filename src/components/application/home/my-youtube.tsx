@@ -20,7 +20,7 @@ export default function MyYouTubeChannel({
       <div className="w-full overflow-x-auto mb-3 mini:mb-6 scroll-hidden">
         <div className="w-max flex gap-3 pl-6 tablet:pl-0 pr-6">
           {/* Here You map Through the Courses */}
-          {youtubeVideos.map((item: any) => {
+          {youtubeVideos?.map((item: any) => {
             return (
               <Link
                 href={item.video_url}

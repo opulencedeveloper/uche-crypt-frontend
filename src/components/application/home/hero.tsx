@@ -15,7 +15,7 @@ import LineCoin from "@/assets/images/home/line-coin.svg";
 import SectionTitle from "../../ui/section-title";
 
 interface Params {
-  courses: any[];
+  courses: any;
 }
 
 export default function Hero({ courses }: Params) {
@@ -71,7 +71,7 @@ export default function Hero({ courses }: Params) {
           className="rounded-2xl w-[850px] max-w-[calc(100%-60px)] h-max mini:h-[270px] md:h-[375px]"
           width="100%"
           height="315"
-          src={courses[0]?.video_url}
+          src={courses?.video_url || ""}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

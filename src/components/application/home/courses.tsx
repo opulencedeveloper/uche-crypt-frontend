@@ -11,6 +11,8 @@ interface MyCoursesParams {
 }
 
 export default function MyCourses({ courses }: MyCoursesParams) {
+  const course = courses;
+
   return (
     <section className="bg-white w-full py-8 flex justify-center">
       <div className="w-[calc(100%-54px)] max-w-[1022px] lg:flex-row flex-col items-center flex justify-between gap-4">
@@ -37,31 +39,31 @@ export default function MyCourses({ courses }: MyCoursesParams) {
             className="rounded-lg"
             width="100%"
             height="168"
-            src={courses[0].video_url}
+            src={course?.video_url}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
 
           <h3 className="font-bold text-black text-sm mini:text-lg mini:leading-[27px]">
-            {courses[0].title}
+            {course?.title}
           </h3>
           <p className="text-dark1 truncate-lines font-normal text-xs mini:text-sm mini:leading-[21px] pr-2">
-            {courses[0]?.description?.length < 156
-              ? courses[0].description
-              : courses[0]?.description?.slice(0, 156) + "..."}
+            {course?.description?.length < 156
+              ? course.description
+              : course?.description?.slice(0, 156) + "..."}
           </p>
           <div className="w-full border-b border-[#EAEAEA]"></div>
           <div className="w-full flex items-center justify-between">
             <Link
-              href={`/courses/${courses[0].slug}`}
+              href={`/courses/${course?.slug}`}
               className="flex items-center gap-1 text-primarygreen1"
             >
               <p className="mini:text-base text-sm font-normal">Learn more</p>{" "}
               <Image src={ArrowRight} alt="" />
             </Link>
             <h2 className="font-bold text-lg mini:text-[22px] text-black">
-              ${courses[0].price}
+              ${course?.price}
             </h2>
           </div>
         </div>
