@@ -147,11 +147,16 @@ export const useAuth = () => {
       url: "/auth/google",
       method: "GET",
     };
+    const newWindow = window.open("", "_blank");
     try {
       const res = await axios.request(config);
-      let url = res?.data?.data?.authorizeUrl;
-      if (url) {
-        window.open(url, "_blank");
+      if (res.data?.success) {
+        let url = res?.data?.data?.authorizeUrl;
+        if (url && newWindow) {
+          newWindow.location.href = url;
+        } else if (newWindow) {
+          newWindow.close();
+        }
       }
     } catch (error: any) {
       notifyUser(
@@ -159,6 +164,10 @@ export const useAuth = () => {
         error?.response?.data?.description || "Failed To Login",
         "right"
       );
+
+      if (newWindow) {
+        newWindow.close();
+      }
     }
   };
 
@@ -177,8 +186,6 @@ export const useAuth = () => {
     };
     try {
       setLoading(true);
-      console.log(config);
-
       const res = await axios.request(config);
       setLoading(false);
       if (res?.data?.description === "Logged in successfully") {
