@@ -22,108 +22,80 @@ export default function Video({
   const { markVideoAsWatched } = useMyLearning();
   const token = Cookies.get("token");
 
+  const proceedToNextChapter = () => {
+    setCourse((prevCourse: any) => {
+      const updatedCourse = { ...prevCourse };
+      let nextModule = null;
+
+      // Mark the current module as watched and find the next one
+      updatedCourse.course_details.some(
+        (section: any, sectionIndex: number) => {
+          const moduleIndex = section.modules.findIndex(
+            (module: any) => module.module_id === item?.id
+          );
+
+          if (moduleIndex !== -1) {
+            // Mark this module as watched
+            updatedCourse.course_details[sectionIndex].modules[
+              moduleIndex
+            ].watched = true;
+
+            // Look for the next unwatched module
+            for (
+              let i = sectionIndex;
+              i < updatedCourse.course_details.length;
+              i++
+            ) {
+              const modules = updatedCourse.course_details[i].modules;
+              const nextUnwatchedIndex = modules.findIndex(
+                (module: any) => !module.watched
+              );
+
+              if (nextUnwatchedIndex !== -1) {
+                const nextModuleData = modules[nextUnwatchedIndex];
+                nextModule = {
+                  ...nextModuleData,
+                  chapter: nextUnwatchedIndex + 1,
+                  module: i + 1,
+                  moduleTitle: updatedCourse.course_details[i].title,
+                  id: nextModuleData.module_id,
+                };
+                break;
+              }
+            }
+            return true;
+          }
+          return false;
+        }
+      );
+
+      // Set the next module as currentVideo, or the last one if all are watched
+      if (nextModule) {
+        setCurrentVideo(nextModule);
+      } else {
+        const lastSection = updatedCourse.course_details.at(-1);
+        const lastModule = lastSection?.modules.at(-1);
+        if (lastModule) {
+          setCurrentVideo({
+            ...lastModule,
+            chapter: lastSection.modules.length,
+            module: updatedCourse.course_details.length,
+            moduleTitle: lastSection.title,
+            id: lastModule.module_id,
+          });
+        }
+      }
+
+      return updatedCourse;
+    });
+  };
+
   useEffect(() => {
     if (iframeRef.current) {
       const player = new Vimeo(iframeRef.current);
-
-      let duration = 0;
-
-      // Retrieve the video duration
-      player.getDuration().then((videoDuration) => {
-        duration = videoDuration;
+      player.on("play", () => {
+        console.log("Played");
       });
-
-      const interval = setInterval(async () => {
-        try {
-          // Get the current playback time
-          const currentTime = await player.getCurrentTime();
-
-          // Check if the video is close to its end (within 1 second)
-          if (duration && currentTime >= duration - 1) {
-            console.log("Video ended"); // Debugging
-
-            // Mark video as watched
-            markVideoAsWatched({
-              courseId: id,
-              moduleId: item?.id,
-              token: token || "",
-            });
-
-            // Update the `course` state and proceed to the next module
-            setCourse((prevCourse: any) => {
-              const updatedCourse = { ...prevCourse };
-              let nextModule = null;
-
-              // Mark the current module as watched and find the next one
-              updatedCourse.course_details.some(
-                (section: any, sectionIndex: number) => {
-                  const moduleIndex = section.modules.findIndex(
-                    (module: any) => module.module_id === item?.id
-                  );
-
-                  if (moduleIndex !== -1) {
-                    // Mark this module as watched
-                    updatedCourse.course_details[sectionIndex].modules[
-                      moduleIndex
-                    ].watched = true;
-
-                    // Look for the next unwatched module
-                    for (
-                      let i = sectionIndex;
-                      i < updatedCourse.course_details.length;
-                      i++
-                    ) {
-                      const modules = updatedCourse.course_details[i].modules;
-                      const nextUnwatchedIndex = modules.findIndex(
-                        (module: any) => !module.watched
-                      );
-
-                      if (nextUnwatchedIndex !== -1) {
-                        const nextModuleData = modules[nextUnwatchedIndex];
-                        nextModule = {
-                          ...nextModuleData,
-                          chapter: nextUnwatchedIndex + 1,
-                          module: i + 1,
-                          moduleTitle: updatedCourse.course_details[i].title,
-                          id: nextModuleData.module_id,
-                        };
-                        break;
-                      }
-                    }
-                    return true;
-                  }
-                  return false;
-                }
-              );
-
-              // Set the next module as currentVideo, or the last one if all are watched
-              if (nextModule) {
-                setCurrentVideo(nextModule);
-              } else {
-                const lastSection = updatedCourse.course_details.at(-1);
-                const lastModule = lastSection?.modules.at(-1);
-                if (lastModule) {
-                  setCurrentVideo({
-                    ...lastModule,
-                    chapter: lastSection.modules.length,
-                    module: updatedCourse.course_details.length,
-                    moduleTitle: lastSection.title,
-                    id: lastModule.module_id,
-                  });
-                }
-              }
-
-              return updatedCourse;
-            });
-
-            clearInterval(interval); // Stop the interval after marking as watched
-          }
-        } catch (error) {
-          console.error("Error with playback time check:", error);
-        }
-      }, 1000); // Check every 1 second
-
-      return () => clearInterval(interval); // Cleanup interval on unmount
     }
   }, [item, id, token, setCourse, setCurrentVideo]);
 
