@@ -63,6 +63,7 @@ export default function SearchField({ value, setValue }: Params) {
       />
       <button
         onClick={startListening}
+        disabled={listening}
         className="text-xs text-[#3C3C4399] font-medium"
       >
         {listening ? "Listening" : <Image src={Microphone} alt="" />}

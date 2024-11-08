@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Pay with card or bank transfer",
+    "logo": "/images/paystack.svg",
+    "name": "paystack"
+  },
+  {
+    "title": "Pay with Crypto",
+    "logo": "/images/ivendpay.svg",
+    "name": "ivendpay"
+  }
+]

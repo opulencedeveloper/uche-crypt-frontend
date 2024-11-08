@@ -142,32 +142,25 @@ export const useAuth = () => {
     }
   };
 
-  const generateGoogleAuthLink = async () => {
+  const generateGoogleAuthLink = async ({ url }: { url: string }) => {
     const config = {
-      url: "/auth/google",
+      url,
       method: "GET",
     };
-    const newWindow = window.open("", "_blank");
+
     try {
       const res = await axios.request(config);
-      if (res.data?.success) {
+      if (res.status === 200) {
         let url = res?.data?.data?.authorizeUrl;
-        if (url && newWindow) {
-          newWindow.location.href = url;
-        } else if (newWindow) {
-          newWindow.close();
-        }
+        window.open(url, "_parent");
       }
     } catch (error: any) {
       notifyUser(
         "error",
-        error?.response?.data?.description || "Failed To Login",
+        error?.response?.data?.description ||
+          "Failed To Generate Authorization Link",
         "right"
       );
-
-      if (newWindow) {
-        newWindow.close();
-      }
     }
   };
 
@@ -203,6 +196,42 @@ export const useAuth = () => {
       notifyUser(
         "error",
         error?.response?.data?.description || "Failed To Login",
+        "right"
+      );
+    }
+  };
+  const signUnWithGoogle = async ({
+    setLoading,
+    code,
+    router,
+  }: {
+    setLoading: any;
+    code: string;
+    router: any;
+  }) => {
+    const config = {
+      url: "/google/signup?code=" + code,
+      method: "POST",
+    };
+    try {
+      setLoading(true);
+      const res = await axios.request(config);
+      setLoading(false);
+      if (res?.data?.message === "success") {
+        notifyUser("success", "Account created successfuly", "right");
+        await fetchUser({ token: res.data.data.token });
+
+        let redirectionLink = Cookies.get("redirectionLink");
+        Cookies.set("token", res.data.data.token || "");
+
+        router.push(redirectionLink || "/my-learning");
+        Cookies.remove("redirectionLink");
+      }
+    } catch (error: any) {
+      setLoading(false);
+      notifyUser(
+        "error",
+        error?.response?.data?.description || "Failed To Sign up",
         "right"
       );
     }
@@ -375,5 +404,6 @@ export const useAuth = () => {
     fetchUser,
     generateGoogleAuthLink,
     signInWithGoogle,
+    signUnWithGoogle,
   };
 };

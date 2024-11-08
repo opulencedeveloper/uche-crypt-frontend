@@ -4,7 +4,6 @@ import { useUser } from "@/contexts/user";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import Cookies from "js-cookie";
 import GoBackLink from "@/components/ui/go-back-link";
 import CourseOverview from "./course-overview";
 
@@ -12,8 +11,8 @@ import PlayButton from "@/assets/images/course-details/play-circle.svg";
 import BankNote from "@/assets/images/home/bank-note.svg";
 import Contents from "./contents";
 
-import { useRouter, usePathname } from "next/navigation";
-import { useMyLearning } from "@/hooks/learning";
+import { useRouter } from "next/navigation";
+import PaymentModal from "./payment-modal";
 
 interface Params {
   course: any;
@@ -21,26 +20,20 @@ interface Params {
 
 export default function CourseContent({ course }: Params) {
   const [bought, setBought] = useState(false);
+  const [paymentModalVisibility, setPaymentModalVisibility] = useState(false);
 
-  const { buyCourse } = useMyLearning();
   const { courses }: any = useLearning();
   const { user }: any = useUser();
 
-  const token = Cookies.get("token");
   const router = useRouter();
-  const pathname = usePathname();
 
   const handleBuyCourse = () => {
     if (bought) {
       router.push("/my-learning/" + course._id);
       return;
     }
-    if (!token) {
-      Cookies.set("redirectionLink", pathname);
-      router.push("/login");
-      return;
-    }
-    buyCourse({ token: token || "", courseId: course._id });
+
+    setPaymentModalVisibility(true);
   };
 
   useEffect(() => {
@@ -55,6 +48,12 @@ export default function CourseContent({ course }: Params) {
 
   return (
     <>
+      <PaymentModal
+        courseId={course?._id || ""}
+        amount={course?.price || 0}
+        open={paymentModalVisibility}
+        setOpen={setPaymentModalVisibility}
+      />
       <div className="w-screen z-30 h-[72px] bg-primarygreen1 fixed bottom-0 left-0 lg:hidden flex justify-between items-center px-6">
         <h1 className="text-[32px] leading-[48px] text-[#57EBA1] font-bold">
           ${course.price}
@@ -99,7 +98,7 @@ export default function CourseContent({ course }: Params) {
             <iframe
               className="mini:h-[221px] h-max lg:h-[467px] rounded-[6px] lg:rounded-[22px] mb-6 lg:mb-8"
               width="100%"
-              src={course.video_url}
+              src={`${course.video_url}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

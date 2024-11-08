@@ -36,7 +36,7 @@ export default function Contents({
               <AccordionTrigger className="items-start">
                 <div className="flex flex-col gap-3 items-start">
                   <p className="text-black font-normal text-start text-sm mini:text-lg">
-                    Chapter {index + 1} - {item.title}
+                    Module {index + 1} - {item?.module_title}
                   </p>
                 </div>
 
@@ -47,12 +47,13 @@ export default function Contents({
                 />
               </AccordionTrigger>
               <AccordionContent className="w-full">
-                <ul className="w-full flex flex-col gap-1 list-inside list-disc">
-                  {item?.modules?.map((module: any, moduleIndex: number) => {
+                <ul className="w-full flex flex-col gap-1 list-inside list-disc pl-3">
+                  {item?.chapters?.map((module: any, moduleIndex: number) => {
                     return (
                       <li
                         key={moduleIndex}
-                        className="text-black tablet:text-lg text-xs mini:text-base mini:leading-6 font-semibold"
+                        className="text-black tablet:text-lg text-xs mini:text-base mini:leading-6 font-semibold pl-5"
+                        style={{ textIndent: "-1.5em" }}
                       >
                         {module.title}
                       </li>

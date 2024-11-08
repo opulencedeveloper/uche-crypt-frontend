@@ -93,7 +93,7 @@ export default function LoginForm() {
       </div>
       <button
         type="button"
-        onClick={generateGoogleAuthLink}
+        onClick={() => generateGoogleAuthLink({ url: "/auth/signin/google" })}
         className="w-full h-11 mini:h-12  mb-3  mini:mb-[23px] rounded-2xl gap-2.5 text-dark1 font-medium text-[11px] mini:text-base flex justify-center items-center border border-[#9D9D9D] bg-[#FEF8F7]"
       >
         <Image

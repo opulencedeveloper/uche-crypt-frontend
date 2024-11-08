@@ -15,18 +15,18 @@ import LineCoin from "@/assets/images/home/line-coin.svg";
 import SectionTitle from "../../ui/section-title";
 
 interface Params {
-  courses: any;
+  course: any;
 }
 
-export default function Hero({ courses }: Params) {
+export default function Hero({ course }: Params) {
   return (
     <section className="w-full h-max overflow-hidden bg-oldlace relative">
       <Image
         src={Background}
         alt=""
-        className="w-full h-full absolute top-[calc(50%-84px)] left-0"
+        className="w-full h-full z-10 absolute top-[calc(50%-84px)] left-0"
       />
-      <div className="w-full flex flex-col top-0 left-0 justify-center items-center h-max py-[62px]">
+      <div className="w-full sticky z-20 flex flex-col top-0 left-0 justify-center items-center h-max py-[62px]">
         <div className="w-[850px] sm:max-w-[90%] max-w-full mb-2 relative flex flex-col items-center">
           <Image
             src={Tether}
@@ -62,19 +62,18 @@ export default function Hero({ courses }: Params) {
 
           <Link
             className="bg-primarygreen1 mb-6 h-[45px] mini:h-fixed52 flex justify-center items-center text-xs mini:text-base font-bold text-white rounded-xl px-34 gap-2"
-            href="/courses"
+            href={`/courses/${course?.slug}`}
           >
-            <Image src={BankNote} alt="" /> Buy my courses
+            <Image src={BankNote} alt="" /> Buy my course
           </Link>
         </div>
         <iframe
-          className="rounded-2xl w-[850px] max-w-[calc(100%-60px)] h-max mini:h-[270px] md:h-[375px]"
+          className="rounded-2xl bg-black overflow-hidden w-[850px] max-w-[calc(100%-60px)] h-max mini:h-[270px] md:h-[375px]"
           width="100%"
           height="315"
-          src={courses?.video_url || ""}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
+          src={`${course?.video_url}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
+          title="m13cp7(Track whales wallet)"
+          allow="autoplay; clipboard-write; picture-in-picture; fullscreen"
         ></iframe>
       </div>
     </section>

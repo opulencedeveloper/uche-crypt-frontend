@@ -14,7 +14,7 @@ export default async function Page() {
 
   return (
     <>
-      <Hero courses={course} />
+      <Hero course={course} />
       <MyCourses courses={course} />
       <Reviews />
       <MyYouTubeChannel youtubeVideos={youtubeCourses?.data} />

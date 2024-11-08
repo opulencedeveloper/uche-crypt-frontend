@@ -6,15 +6,13 @@ import { useMyLearning } from "@/hooks/learning";
 import Cookies from "js-cookie";
 import SearchField from "@/components/application/search-field";
 import CourseSections from "@/components/application/my-learning/course-sections";
-import RenderCourses from "@/components/application/course-details/render-courses";
 
 import Video from "@/components/application/my-learning/video";
 
 export default function CourseOverview({ slug }: { slug: string }) {
   const [value, setValue] = useState("");
   const [course, setCourse]: any = useState(null);
-  const [currentVideoUrl, setCurrentVideoUrl] = useState("");
-  const [otherCourses, setOtherCourses] = useState([]);
+  const [currentVideo, setCurrentVideo]: any = useState(null);
 
   const { user }: any = useUser();
   const { getCourse } = useMyLearning();
@@ -23,13 +21,47 @@ export default function CourseOverview({ slug }: { slug: string }) {
 
   useEffect(() => {
     if (user && token) {
-      getCourse({ token, id: slug, setData: setCourse, setOtherCourses });
+      getCourse({ token, id: slug, setData: setCourse });
     }
   }, [user]);
 
   useEffect(() => {
     if (course) {
-      setCurrentVideoUrl(course.course_details[0].modules[0].video_url);
+      let foundModule = null;
+      course.course_details.some((section: any, videoItemIndex: number) => {
+        const moduleIndex = section.modules.findIndex(
+          (module: any) => !module.watched
+        );
+        if (moduleIndex !== -1) {
+          const moduleItem = section.modules[moduleIndex];
+
+          foundModule = {
+            ...module,
+            chapter: moduleIndex + 1,
+            module: videoItemIndex + 1,
+            moduleTitle: section.title,
+            id: moduleItem.module_id,
+          };
+          return true;
+        }
+        return false;
+      });
+
+      if (foundModule) {
+        setCurrentVideo(foundModule);
+      } else {
+        const lastSection = course.course_details.at(-1);
+        const lastModule = lastSection?.modules.at(-1);
+        if (lastModule) {
+          setCurrentVideo({
+            ...lastModule,
+            chapter: lastSection.modules.length,
+            module: course.course_details.length,
+            moduleTitle: lastSection.title,
+            id: lastModule.module_id,
+          });
+        }
+      }
     }
   }, [course]);
 
@@ -41,21 +73,18 @@ export default function CourseOverview({ slug }: { slug: string }) {
         </div>
       </div>
 
-      {course && (
-        <div className="w-full px-6 xl:px-0 lg:flex-row flex-col-reverse gap-[17px] items-start mb-16 flex">
-          <CourseSections
-            videoUrl={currentVideoUrl}
-            setVideoUrl={setCurrentVideoUrl}
-            course={course}
-          />
-          <Video url={currentVideoUrl} />
-        </div>
-      )}
-      <div className="w-full flex flex-col">
-        <h2 className="text-black px-6 xl-px-0 font-bold text-xl mini:text-[32px] mini:leading-[48px] mb-8">
-          Other courses
-        </h2>
-        <RenderCourses courses={otherCourses} />
+      <div className="w-full px-6 xl:px-0 lg:flex-row flex-col-reverse gap-[17px] items-start  flex">
+        <CourseSections
+          currentVideo={currentVideo}
+          setCurrentVideo={setCurrentVideo}
+          course={course}
+        />
+        <Video
+          id={slug || ""}
+          item={currentVideo}
+          setCourse={setCourse}
+          setCurrentVideo={setCurrentVideo}
+        />
       </div>
     </>
   );

@@ -29,9 +29,9 @@ export default function MyCourses({ courses }: MyCoursesParams) {
           </h2>
           <Link
             className="bg-primarygreen1 mb-6 h-[45px] mini:h-fixed52 flex justify-center items-center text-xs mini:text-base font-bold text-white rounded-xl px-34 gap-2"
-            href="/courses"
+            href={`/courses/${course?.slug}`}
           >
-            <Image src={BankNote} alt="" /> Buy my courses
+            <Image src={BankNote} alt="" /> Buy my course
           </Link>
         </div>
         <div className="w-338 max-w-full lg:max-w-none min-w-0 lg:min-w-[338px] h-max mini:h-394 rounded-xl border border-[#D1D1D6] bg-[#FFFEF9] p-2 mini:py-4 mini:px-3 flex flex-col items-center gap-2 justify-between">
@@ -40,32 +40,34 @@ export default function MyCourses({ courses }: MyCoursesParams) {
             width="100%"
             height="168"
             src={course?.video_url}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            title="m13cp7(Track whales wallet)"
+            allow="autoplay; clipboard-write; picture-in-picture; fullscreen"
             allowFullScreen
           ></iframe>
 
-          <h3 className="font-bold text-black text-sm mini:text-lg mini:leading-[27px]">
-            {course?.title}
-          </h3>
-          <p className="text-dark1 truncate-lines font-normal text-xs mini:text-sm mini:leading-[21px] pr-2">
-            {course?.description?.length < 156
-              ? course.description
-              : course?.description?.slice(0, 156) + "..."}
-          </p>
-          <div className="w-full border-b border-[#EAEAEA]"></div>
-          <div className="w-full flex items-center justify-between">
-            <Link
-              href={`/courses/${course?.slug}`}
-              className="flex items-center gap-1 text-primarygreen1"
-            >
-              <p className="mini:text-base text-sm font-normal">Learn more</p>{" "}
-              <Image src={ArrowRight} alt="" />
-            </Link>
-            <h2 className="font-bold text-lg mini:text-[22px] text-black">
-              ${course?.price}
-            </h2>
-          </div>
+          <Link
+            className="w-full flex flex-col gap-2"
+            href={`/courses/${course?.slug}`}
+          >
+            <h3 className="font-bold text-black text-sm mini:text-lg mini:leading-[27px]">
+              {course?.title}
+            </h3>
+            <p className="text-dark1 truncate-lines font-normal text-xs mini:text-sm mini:leading-[21px] pr-2">
+              {course?.description?.length < 156
+                ? course.description
+                : course?.description?.slice(0, 156) + "..."}
+            </p>
+            <span className="w-full border-b border-[#EAEAEA]"></span>
+            <span className="w-full flex items-center justify-between">
+              <div className="flex items-center gap-1 text-primarygreen1">
+                <p className="mini:text-base text-sm font-normal">Learn more</p>{" "}
+                <Image src={ArrowRight} alt="" />
+              </div>
+              <h2 className="font-bold text-lg mini:text-[22px] text-black">
+                ${course?.price}
+              </h2>
+            </span>
+          </Link>
         </div>
       </div>
     </section>

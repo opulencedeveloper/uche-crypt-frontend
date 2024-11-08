@@ -25,7 +25,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="w-full h-[68px] tablet:h-84 px-6 tablet:px-16 flex justify-between items-center bg-honeydew">
+    <nav className="w-full z-30 sticky h-[68px] tablet:h-84 px-6 tablet:px-16 flex justify-between items-center bg-honeydew">
       <Link href="/">
         <Image
           className="tablet:w-[199.36px] tablet:h-[21px] h-max w-[100px] mini:h-[16.64px] mini:w-[158px]"

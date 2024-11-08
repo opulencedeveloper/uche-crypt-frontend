@@ -27,7 +27,7 @@ export default function CourseOverview({
           {course.title}
         </h1>
         <p className="text-[22px] text-[#6B7588] leading-[33px] font-normal mb-8 hidden lg:block">
-          {course.description}
+          {course?.sub_title} <br /> <br /> {course?.description}
         </p>
 
         <p className="mini:text-base text-[#6B7588] text-sm mini:leading-6 font-normal mb-6 lg:hidden block">
@@ -37,9 +37,20 @@ export default function CourseOverview({
         <h3 className="text-black font-medium text-base mini:text-lg lg:text-[22px] mini:leading-7 lg:leading-[33px] mb-4">
           Who is the course for?
         </h3>
-        <p className="lg:text-[22px] text-sm mini:text-base text-[#6B7588] mini:leading-6 mb-6 lg:mb-0 lg:leading-[33px] font-normal">
-          {course.introduction}
-        </p>
+        <div className="w-full flex flex-col">
+          {course?.who_is_this_course_for?.map(
+            (item: string, index: number) => {
+              return (
+                <p
+                  key={index}
+                  className="lg:text-[22px] text-sm mini:text-base text-[#6B7588] mini:leading-6 mb-6 lg:mb-0 lg:leading-[33px] font-normal"
+                >
+                  {item}
+                </p>
+              );
+            }
+          )}
+        </div>
       </div>
       <div className="w-[472px] max-w-full p-4 mini:p-6 bg-[#FAFAFA] rounded-xl">
         <div className="w-full flex flex-col gap-2 mini:gap-4 lg:mb-[22px]">
@@ -64,7 +75,7 @@ export default function CourseOverview({
           <h2 className="text-black font-bold text-[30px] mini:text-[40px] leading-5 mini:leading-7 tablet:text-[62px] tablet:leading-[45px]">
             ${course.price}
           </h2>
-          <StrikeThroughText />
+          <StrikeThroughText slashedPrice={course?.slashed_price || 0} />
         </div>
         <button
           onClick={handleBuyCourse}

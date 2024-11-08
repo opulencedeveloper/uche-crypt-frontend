@@ -37,10 +37,10 @@ export default function AuthenticationLayout({
           className="w-full z-10 h-full absolute top-[50%] left-0"
         />
       </div>
+      <div className="static bg-oldlace tablet:bg-transparent z-50 w-full mt-8 tablet:mt-0 tablet:w-max h-max tablet:fixed tablet:top-8 top-0 tablet:left-[177px] ">
+        <GoBackLink />
+      </div>
       <div className="tablet:sticky static pt-8 tablet:pt-0 top-12 z-40 left-0 w-full flex flex-col tablet:flex-row gap-8 tablet:gap-0 justify-center items-center mb-8 tablet:mb-0">
-        <div className="tablet:absolute w-full tablet:w-max static left-[177px] -translate-y-[7px]">
-          <GoBackLink />
-        </div>
         <Link href="/">
           <Image
             width={199.36}

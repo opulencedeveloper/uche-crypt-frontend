@@ -35,13 +35,13 @@ export default function ProfileDropdown({ user, handleLogout }: Params) {
           </NavigationMenuTrigger>
           <NavigationMenuContent className=" navigation-menu-card md:w-[331px] border-none h-max bg-white rounded-xl p-6 flex flex-col gap-3">
             <div className="w-full flex gap-3 items-center">
-              <div className="w-10 h-10 rounded-full bg-[#D4EADF] flex items-center justify-center">
+              <div className="min-w-10 min-h-10 rounded-full bg-[#D4EADF] flex items-center justify-center">
                 <p className="text-primarygreen1 font-bold text-[13.3px]">
                   {user?.email[0]?.toUpperCase() || ""}
                 </p>
               </div>
-              <div className="flex flex-col justify-center gap-0.5">
-                <p className="text-[#8F90A6] text-base leading-6 font-normal truncate">
+              <div className="flex w-[calc(100%-52px)] flex-col justify-center gap-0.5">
+                <p className="text-[#8F90A6] w-full text-base leading-6 font-normal truncate">
                   {user?.email}
                 </p>
               </div>
