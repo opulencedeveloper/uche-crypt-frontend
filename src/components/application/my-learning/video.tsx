@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect } from "react";
-import Vimeo from "@vimeo/player";
+import Player from "@vimeo/player";
 import { useMyLearning } from "@/hooks/learning";
 import Cookies from "js-cookie";
 import Link from "next/link";
@@ -18,11 +18,17 @@ export default function Video({
   setCourse,
   setCurrentVideo,
 }: Params) {
-  const iframeRef: any = useRef(null);
+  const vimeoRef: any = useRef(null);
   const { markVideoAsWatched } = useMyLearning();
   const token = Cookies.get("token");
 
   const proceedToNextChapter = () => {
+    markVideoAsWatched({
+      token: token || "",
+      courseId: id,
+      moduleId: item?.id,
+    });
+
     setCourse((prevCourse: any) => {
       const updatedCourse = { ...prevCourse };
       let nextModule = null;
@@ -91,28 +97,36 @@ export default function Video({
   };
 
   useEffect(() => {
-    if (iframeRef.current) {
-      const player = new Vimeo(iframeRef.current);
-      player.on("play", () => {
-        console.log("Played");
+    if (!vimeoRef.current) return;
+
+    // Extract the Vimeo video ID from the URL
+    const videoId = item?.video_url?.split("/").pop();
+
+    if (videoId) {
+      // Initialize Vimeo player with the video ID
+      const player = new Player(vimeoRef.current, {
+        id: videoId,
       });
+
+      // Listen for the 'ended' event to trigger onVideoEnd callback
+      player.on("ended", () => {
+        proceedToNextChapter();
+      });
+
+      // Clean up player on component unmount
+      return () => {
+        player.unload();
+      };
     }
-    console.log(item);
   }, [item, id, token, setCourse, setCurrentVideo]);
 
   return (
     <div className="lg:w-[516px] w-full flex flex-col">
-      <iframe
-        ref={iframeRef}
+      <div
+        ref={vimeoRef}
         id="video-box"
-        className=" w-full border mb-6 border-[#D1D1D6] bg-black mt-5 lg:mt-0 rounded-xl h-max mini:h-[221px] lg:h-[340px] "
-        width="100%"
-        src={`${
-          item?.video_url || "https://vimeo.com/1010831987"
-        }?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-        title="m13cp7(Track whales wallet)"
-        allow="autoplay; clipboard-write; picture-in-picture; fullscreen"
-      ></iframe>
+        className=" w-full border mb-6 overflow-hidden flex justify-center items-center border-[#D1D1D6] bg-black mt-5 lg:mt-0 rounded-xl h-max mini:h-[221px] lg:h-[340px] "
+      ></div>
       <div className="w-full flex flex-col gap-3">
         <h2 className="text-black tablet:text-base text-sm">
           <b>
