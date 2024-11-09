@@ -18,7 +18,8 @@ export default function Video({
   setCourse,
   setCurrentVideo,
 }: Params) {
-  const vimeoRef: any = useRef(null);
+  const vimeoRef = useRef(null);
+  const playerRef = useRef<Player | null>(null); // Reference for the player instance
   const { markVideoAsWatched } = useMyLearning();
   const token = Cookies.get("token");
 
@@ -33,7 +34,6 @@ export default function Video({
       const updatedCourse = { ...prevCourse };
       let nextModule = null;
 
-      // Mark the current module as watched and find the next one
       updatedCourse.course_details.some(
         (section: any, sectionIndex: number) => {
           const moduleIndex = section.modules.findIndex(
@@ -41,12 +41,10 @@ export default function Video({
           );
 
           if (moduleIndex !== -1) {
-            // Mark this module as watched
             updatedCourse.course_details[sectionIndex].modules[
               moduleIndex
             ].watched = true;
 
-            // Look for the next unwatched module
             for (
               let i = sectionIndex;
               i < updatedCourse.course_details.length;
@@ -75,7 +73,6 @@ export default function Video({
         }
       );
 
-      // Set the next module as currentVideo, or the last one if all are watched
       if (nextModule) {
         setCurrentVideo(nextModule);
       } else {
@@ -97,28 +94,31 @@ export default function Video({
   };
 
   useEffect(() => {
-    if (!vimeoRef.current) return;
-
-    // Extract the Vimeo video ID from the URL
     const videoId = item?.video_url?.split("/").pop();
 
-    if (videoId) {
-      // Initialize Vimeo player with the video ID
+    if (videoId && vimeoRef.current) {
+      if (playerRef.current) {
+        playerRef.current.destroy(); // Destroy the previous player instance
+      }
+
       const player = new Player(vimeoRef.current, {
         id: videoId,
       });
 
-      // Listen for the 'ended' event to trigger onVideoEnd callback
       player.on("ended", () => {
         proceedToNextChapter();
       });
 
-      // Clean up player on component unmount
-      return () => {
-        player.unload();
-      };
+      playerRef.current = player; // Save the player instance
     }
-  }, [item, id, token, setCourse, setCurrentVideo]);
+
+    // Clean up player on component unmount or item change
+    return () => {
+      if (playerRef.current) {
+        playerRef.current.destroy();
+      }
+    };
+  }, [item?.video_url]); // Depend on item.video_url to reinitialize on video change
 
   return (
     <div className="lg:w-[516px] w-full flex flex-col">
