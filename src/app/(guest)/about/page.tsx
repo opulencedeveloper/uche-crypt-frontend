@@ -36,37 +36,35 @@ export default function Page() {
         />
         <div className="w-full mb-5 flex flex-col lg:px-28 px-[32px] gap-6 text-[#0B0A00] font-normal text-base leading-6">
           <p>
-            This is Cryptocurrency Education and Product Channel, Finance,
-            Blockchain and other Random Educational Content.
+            I’m a passionate crypto trader who first discovered Bitcoin in 2015.
+            My journey in cryptocurrency truly began in 2020 when I bought
+            Ethereum, only to sell it at a loss after it crashed the same day.
+            Despite this setback, I returned to the crypto space in 2021 with
+            just $35, driven by a determination to learn, grow, and build
+            wealth. Over time, I’ve sharpened my trading skills and deepened my
+            knowledge, achieving financial freedom through crypto.
           </p>
           <p>
             {" "}
-            I make informational and how-to videos about cryptocurrency,
-            blockchain, and financial technology.
+            In 2023, I started sharing my insights about Crypto to help others
+            achieve similar success. With over 300k followers across YouTube,
+            Twitter, TikTok, and Telegram, my content is empowering others to
+            create generational wealth in crypto.
           </p>
           <p>
-            My channel is about breaking down complex concepts and processes
-            related to crypto, finance, and economics in ways that are easy for
-            everyone to understand.
+            Go through my telegram group and other socials and you will find
+            people thanking me for helping them make money from a particular
+            coin I talked about, a strategy, an Airdrop, or even a platform, the
+            feedback from my community speaks for itself.
           </p>
           <p>
-            Whether you are interested in learning about how bitcoin works or
-            looking to buy altcoins as an investment, subscribe to my channel to
-            learn more about this exciting, new technology.
+            My growing influence has also led to collaborations with reputable
+            crypto companies and products like Bybit, Toobit, Mizar, Maestro
+            Sniper Bot, Bonkbot, Umoja, and Moonberg.
           </p>
           <p>
-            As you can see, my videos break things down into easy-to-follow
-            steps, so everyone can enjoy. Sharing our journey and helping others
-            make money online.
-          </p>
-          <p>
-            Videos are not &apos;buy&lsquo; or &lsquo;sell&lsquo; signals of any
-            kind. Investing and trading in cryptocurrencies is VERY RISKY.
-          </p>
-          <p>
-            Subscribe to my channel and let me know what questions you have
-            about bitcoin, ethereum, blockchain, tangle, or any other types of
-            cryptocurrency and I&lsquo;ll be glad to help.
+            Join me on this journey to financial independence, and let’s build
+            wealth together.
           </p>
         </div>
         <Image src={Signature} alt="" className="mb-[41px] ml-[41px]" />

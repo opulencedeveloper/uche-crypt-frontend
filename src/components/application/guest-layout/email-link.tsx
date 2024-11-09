@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function EmailLink() {
   return (
     <Link
-      href="mailto:Uchcrypt@gmail.com"
+      href="mailto:info.uchecrypt@gmail.com"
       className="w-full cursor-pointer flex justify-between items-start"
     >
       <div className="flex items-start gap-3">
@@ -15,7 +15,7 @@ export default function EmailLink() {
         <div className="flex flex-col gap-0.5">
           <p className="text-dark1 text-sm font-bold leading-[21px]">Email</p>
           <p className="text-[#6B7588] text-base font-normal leading-6">
-            Uchcrypt@gmail.com
+            info.uchecrypt@gmail.com
           </p>
         </div>
       </div>

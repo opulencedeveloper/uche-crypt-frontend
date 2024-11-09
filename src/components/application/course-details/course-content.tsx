@@ -98,9 +98,10 @@ export default function CourseContent({ course }: Params) {
             <iframe
               className="mini:h-[221px] bg-black h-max lg:h-[467px] rounded-[6px] lg:rounded-[22px] mb-6 lg:mb-8"
               width="100%"
-              src={`${course.video_url}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              src={`${course.video_url}?loop=false&amp;autoplay=false&amp;muted=false&amp;gesture=media&amp;playsinline=true&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=false&amp;customControls=true`}
+              title="Player for 2. Types of Trading"
+              data-ready="true"
+              allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope"
               allowFullScreen
             ></iframe>
           </div>

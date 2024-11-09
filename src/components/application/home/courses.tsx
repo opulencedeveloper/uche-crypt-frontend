@@ -39,9 +39,10 @@ export default function MyCourses({ courses }: MyCoursesParams) {
             className="rounded-lg bg-black"
             width="100%"
             height="168"
-            src={`${course?.video_url}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-            title="m13cp7(Track whales wallet)"
-            allow="autoplay; clipboard-write; picture-in-picture; fullscreen"
+            src={`${course?.video_url}?loop=false&amp;autoplay=false&amp;muted=false&amp;gesture=media&amp;playsinline=true&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=false&amp;customControls=true`}
+            title="Player for 2. Types of Trading"
+            data-ready="true"
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope"
             allowFullScreen
           ></iframe>
 

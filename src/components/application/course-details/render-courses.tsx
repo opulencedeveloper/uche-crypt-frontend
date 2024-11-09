@@ -23,9 +23,9 @@ export default function RenderCourses({
               className="rounded-[6px] bg-black"
               width="100%"
               height="168"
-              src={`${item?.video_url}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              src={`${item?.video_url}?loop=false&amp;autoplay=false&amp;muted=false&amp;gesture=media&amp;playsinline=true&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=false&amp;customControls=true`}
+              data-ready="true"
+              allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope"
               allowFullScreen
             ></iframe>
             <Link

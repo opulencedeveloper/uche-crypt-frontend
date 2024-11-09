@@ -89,7 +89,7 @@ export const useMyLearning = () => {
       const res = await axios.request(config);
       let authorization_url = res.data.data.authorization_url;
       if (authorization_url) {
-        window.open(authorization_url);
+        window.open(authorization_url, "_parent");
       }
     } catch (error: any) {
       notifyUser(
@@ -99,7 +99,7 @@ export const useMyLearning = () => {
           "Something went wrong",
         "right"
       );
-      console.log(error);
+
       if (error?.response?.status === 401) {
         Cookies.remove("token");
         window.location.href = "/login";
