@@ -96,7 +96,7 @@ export default function CourseContent({ course }: Params) {
 
           <div className="w-full px-6 xl:px-0">
             <iframe
-              className="mini:h-[221px] h-max lg:h-[467px] rounded-[6px] lg:rounded-[22px] mb-6 lg:mb-8"
+              className="mini:h-[221px] bg-black h-max lg:h-[467px] rounded-[6px] lg:rounded-[22px] mb-6 lg:mb-8"
               width="100%"
               src={`${course.video_url}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
               title="YouTube video player"

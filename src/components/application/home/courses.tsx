@@ -36,10 +36,10 @@ export default function MyCourses({ courses }: MyCoursesParams) {
         </div>
         <div className="w-338 max-w-full lg:max-w-none min-w-0 lg:min-w-[338px] h-max mini:h-394 rounded-xl border border-[#D1D1D6] bg-[#FFFEF9] p-2 mini:py-4 mini:px-3 flex flex-col items-center gap-2 justify-between">
           <iframe
-            className="rounded-lg"
+            className="rounded-lg bg-black"
             width="100%"
             height="168"
-            src={course?.video_url}
+            src={`${course?.video_url}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
             title="m13cp7(Track whales wallet)"
             allow="autoplay; clipboard-write; picture-in-picture; fullscreen"
             allowFullScreen

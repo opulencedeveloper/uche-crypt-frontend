@@ -36,7 +36,7 @@ export default function CourseOverview({ slug }: { slug: string }) {
           const moduleItem = section.modules[moduleIndex];
 
           foundModule = {
-            ...module,
+            ...moduleItem,
             chapter: moduleIndex + 1,
             module: videoItemIndex + 1,
             moduleTitle: section.title,

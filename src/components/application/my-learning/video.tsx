@@ -97,6 +97,7 @@ export default function Video({
         console.log("Played");
       });
     }
+    console.log(item);
   }, [item, id, token, setCourse, setCurrentVideo]);
 
   return (
