@@ -52,8 +52,8 @@ export default function Hero({ course }: Params) {
 
           <SectionTitle title="Welcome to uchecrypt" />
           <h1 className="my-2 text-center font-bold text-[28px] mini:text-4xl max-w-full md:text-[55px] md:leading-[70px]  lg:text-62 leading-10 mini:leading-[54px] lg:leading-80 text-deepGreen">
-            The Ultimate <br className="lg:hidden block" /> Cryptocurrency{" "}
-            <br className="sm:hidden block" /> and Meme Coin/DeFi <br />
+            The Ultimate <br className="lg:hidden block" /> Cryptocurrency and
+            Memecoin/DeFi <br />
             <span className="text-amber">Mastery Course</span>
           </h1>
           <p className="text-center sm:max-w-[80%] max-w-[90%] mini:max-w-[280px] lg:max-w-full font-normal text-xs mini:text-base tablet:text-28 leading-7 tablet:leading-42 text-dark1 mb-4 mini:mb-8">

@@ -34,7 +34,7 @@ export default function MyCourses({ courses }: MyCoursesParams) {
             <Image src={BankNote} alt="" /> Buy my course
           </Link>
         </div>
-        <div className="w-338 max-w-full lg:max-w-none min-w-0 lg:min-w-[338px] h-max mini:h-394 rounded-xl border border-[#D1D1D6] bg-[#FFFEF9] p-2 mini:py-4 mini:px-3 flex flex-col items-center gap-2 justify-between">
+        <div className="w-338 max-w-full lg:max-w-none min-w-0 lg:min-w-[338px] h-max tablet:h-394 rounded-xl border border-[#D1D1D6] bg-[#FFFEF9] p-2 mini:py-4 mini:px-3 flex flex-col items-center gap-2 justify-between">
           <iframe
             className="rounded-lg bg-black"
             width="100%"

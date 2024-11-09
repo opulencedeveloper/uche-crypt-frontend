@@ -17,7 +17,7 @@ export default function RenderCourses({
         return (
           <div
             key={item?._id}
-            className=" mini:h-394 h-max rounded-xl border border-[#D1D1D6] bg-white p-2 mini:p-4 flex flex-col items-center gap-2 justify-between"
+            className=" tablet:h-394 h-max rounded-xl border border-[#D1D1D6] bg-white p-2 mini:p-4 flex flex-col items-center gap-2 justify-between"
           >
             <iframe
               className="rounded-[6px] bg-black"
