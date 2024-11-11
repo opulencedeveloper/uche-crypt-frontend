@@ -3,19 +3,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import ArrowLeft from "@/assets/images/arrow-left.svg";
 
-interface Params {
-  path?: string;
-}
-
-export default function GoBackLink({ path }: Params) {
+export default function GoBackLink() {
   const router = useRouter();
 
   const handleBackClick = () => {
-    if (path) {
-      router.push(path);
-    } else {
-      router.back();
-    }
+    router.back();
   };
 
   return (

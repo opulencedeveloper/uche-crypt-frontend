@@ -98,11 +98,11 @@ export const useAuth = () => {
         let redirectionLink = Cookies.get("redirectionLink");
         Cookies.set("token", res.data.data.token || "");
 
-        router.push(redirectionLink || "/my-learning");
+        router.replace(redirectionLink || "/my-learning");
         Cookies.remove("redirectionLink");
       } else {
         Cookies.set("account-email", email);
-        router.push("/email-verification");
+        router.replace("/email-verification");
       }
     } catch (error: any) {
       setLoading(false);
@@ -134,7 +134,7 @@ export const useAuth = () => {
       await axios.request(config);
       setLoading(false);
       notifyUser("success", "Email verified", "center");
-      router.push("/login");
+      router.replace("/login");
     } catch (error) {
       setLoading(false);
       notifyUser("error", "Invalid OTP", "center");
@@ -188,7 +188,7 @@ export const useAuth = () => {
         let redirectionLink = Cookies.get("redirectionLink");
         Cookies.set("token", res.data.data.token || "");
 
-        router.push(redirectionLink || "/my-learning");
+        router.replace(redirectionLink || "/my-learning");
         Cookies.remove("redirectionLink");
       }
     } catch (error: any) {
@@ -224,7 +224,7 @@ export const useAuth = () => {
         let redirectionLink = Cookies.get("redirectionLink");
         Cookies.set("token", res.data.data.token || "");
 
-        router.push(redirectionLink || "/my-learning");
+        router.replace(redirectionLink || "/my-learning");
         Cookies.remove("redirectionLink");
       }
     } catch (error: any) {
@@ -281,7 +281,7 @@ export const useAuth = () => {
       await axios.request(config);
       setLoading(false);
       notifyUser("success", "Password changed successfully", "right");
-      router.push("/login");
+      router.replace("/login");
     } catch (error: any) {
       setLoading(false);
       notifyUser(
@@ -319,7 +319,7 @@ export const useAuth = () => {
       );
 
       Cookies.set("account-email", email);
-      router.push("/email-verification");
+      router.replace("/email-verification");
     } catch (error: any) {
       setLoading(false);
       console.log(error);

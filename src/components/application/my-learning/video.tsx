@@ -94,6 +94,8 @@ export default function Video({
   };
 
   useEffect(() => {
+    console.log(item);
+
     const videoId = item?.video_url?.split("/").pop();
 
     if (videoId && vimeoRef.current) {
@@ -122,11 +124,20 @@ export default function Video({
 
   return (
     <div className="lg:w-[516px] w-full flex flex-col">
-      <div
-        ref={vimeoRef}
-        id="video-box"
-        className=" w-full border mb-6 overflow-hidden flex justify-center items-center border-[#D1D1D6] bg-black mt-5 lg:mt-0 rounded-xl h-max mini:h-[221px] lg:h-[340px] "
-      ></div>
+      {item?.video_url ? (
+        <div
+          ref={vimeoRef}
+          id="video-box"
+          className=" w-full border mb-6 overflow-hidden flex justify-center items-center border-[#D1D1D6] bg-black mt-5 lg:mt-0 rounded-xl h-max mini:h-[221px] lg:h-[340px] "
+        ></div>
+      ) : (
+        // <iframe
+        //   src={item?.pdf_url?.replace("/edit", "/preview")}
+        //   className=" w-full border mb-6 overflow-hidden flex justify-center items-center border-[#D1D1D6] bg-black mt-5 lg:mt-0 rounded-xl h-max mini:h-[221px] lg:h-[340px] "
+        // ></iframe>
+        <></>
+      )}
+
       <div className="w-full flex flex-col gap-3">
         <h2 className="text-black tablet:text-base text-sm">
           <b>
@@ -161,12 +172,28 @@ export default function Video({
             {item?.links?.map((link: any, index: number) => (
               <Link
                 key={index}
+                target="_blank"
                 href={link?.link || ""}
                 className="text-blue-600"
               >
                 {link?.linkName} &nbsp;
               </Link>
             ))}
+          </p>
+        )}
+        {item?.pdf_url && (
+          <p className="text-black font-normal tablet:text-base text-xs">
+            View Document:&nbsp;
+            <button
+              type="button"
+              onClick={() => {
+                proceedToNextChapter();
+                window.open(item?.pdf_url || "", "_blank");
+              }}
+              className="text-blue-600"
+            >
+              Document URL
+            </button>
           </p>
         )}
       </div>
