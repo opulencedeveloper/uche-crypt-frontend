@@ -71,8 +71,8 @@ export default function Hero({ course }: Params) {
           className="rounded-2xl bg-black overflow-hidden w-[850px] max-w-[calc(100%-60px)] h-max mini:h-[270px] md:h-[375px]"
           width="100%"
           height="315"
-          src={`${course?.video_url}?loop=false&amp;autoplay=false&amp;muted=false&amp;gesture=media&amp;playsinline=true&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=false&amp;customControls=true`}
-          title="Player for 2. Types of Trading"
+          src={`https://player.vimeo.com/video/1028698240?loop=false&amp;autoplay=false&amp;muted=false&amp;gesture=media&amp;playsinline=true&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=false&amp;customControls=true`}
+          title="Player for How to buy course"
           data-ready="true"
           allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope"
         ></iframe>
