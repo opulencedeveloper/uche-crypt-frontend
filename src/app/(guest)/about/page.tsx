@@ -7,6 +7,24 @@ import UcheCrypt from "@/assets/images/about/uche-crypt.png";
 import NewsLetter from "@/components/application/home/news-letter";
 
 import SectionTitle from "@/components/ui/section-title";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ABOUT ME",
+  description:
+    "As an experienced crypto trader and enthusiast, I’ve been navigating the world of cryptocurrency since discovering Bitcoin in 2015. My real journey began in 2020 with my first Ethereum purchase, and despite early challenges, I returned with renewed determination and just $35 in 2021. Through resilience and strategic learning, I achieved financial freedom and began sharing my knowledge in 2023.",
+  keywords: [
+    "Crypto trader",
+    "Bitcoin",
+    "Ethereum",
+    "financial freedom",
+    "generational wealth",
+    "cryptocurrency insights",
+    "crypto trading strategies",
+    "cryptocurrency knowledge",
+    "social media crypto influencer",
+  ],
+};
 
 export default function Page() {
   return (
