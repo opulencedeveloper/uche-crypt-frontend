@@ -1,22 +1,20 @@
 [
   {
-    "name": "Samuel Patrick",
+    "name": "Mela Winning Ozioma",
     "rating": "4.3/5.0",
-    "message": "“Great courses, a wonder teacher learning from basic to pro level... buy the course you will not regret it.”"
+    "message": "“An amazing course! The content is structured perfectly for both beginners and advanced learners in crypto and DeFi.”",
+    "imageUrl": "mela-winning-ozioma.jpg"
   },
   {
-    "name": "Uche Abraham",
-    "rating": "4.3/5.0",
-    "message": "“Great courses, a wonder teacher learning from basic to pro level... buy the course you will not regret it.”"
+    "name": "Victor Ogwezi",
+    "rating": "4.4/5.0",
+    "message": "“The instructor's explanations are clear and practical, making complex topics easy to grasp.”",
+    "imageUrl": "victor-ogwezi.jpg"
   },
   {
-    "name": "Moses Anyanwu",
-    "rating": "4.3/5.0",
-    "message": "“Great courses, a wonder teacher learning from basic to pro level... buy the course you will not regret it.”"
-  },
-  {
-    "name": "Christian Victor",
-    "rating": "4.3/5.0",
-    "message": "“Great courses, a wonder teacher learning from basic to pro level... buy the course you will not regret it.”"
+    "name": "Chima Richard",
+    "rating": "4.8/5.0",
+    "message": "“One of the best crypto courses out there! I learned so much about trading strategies and market analysis.”",
+    "imageUrl": "chima-richard.jpg"
   }
 ]

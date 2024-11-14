@@ -31,10 +31,10 @@ export default function Reviews() {
             return (
               <div
                 key={item.name}
-                className="bg-white border max-w-[calc(100vw-39px)]   border-[#D1D1D6] rounded-xl px-3 py-[18px] w-[319px] h-max mini:h-40 flex flex-col justify-between"
+                className="bg-white border max-w-[calc(100vw-39px)]  border-[#D1D1D6] rounded-xl px-3 py-[18px] w-[319px] flex flex-col"
               >
-                <div className="flex gap-2 items-start mb-3 mini:mb-0">
-                  <Image src={Avatar} alt="" className="w-8 h-8 rounded-full" />
+                <div className="flex gap-2 items-start mb-3 mini:mb-4">
+                  <Image src={`/images/${item.imageUrl}`} height={100} width={100} alt="" className="w-8 h-8 rounded-full" />
                   <div className="flex flex-col">
                     <h2 className="text-[#3A3A3C] font-bold text-sm mini:text-lg mini:leading-[27px]">
                       {item.name}
