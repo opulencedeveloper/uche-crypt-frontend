@@ -3,7 +3,7 @@ import ChevronRight from "@/assets/images/contact-dropdown/chevron-right.svg";
 import WhatsApp from "@/assets/images/contact-dropdown/whatsapp.svg";
 
 export default function WhatsAppLink() {
-  const whatsappURL = `https://api.whatsapp.com/send?phone=+2348185643821&text=${""}`;
+  const whatsappURL = `https://api.whatsapp.com/send?phone=++2349030889135&text=${""}`;
   return (
     <div
       onClick={() => window.open(whatsappURL, "_blank")}
@@ -16,7 +16,7 @@ export default function WhatsAppLink() {
             WhatsApp
           </p>
           <p className="text-[#6B7588] text-base font-normal leading-6">
-            O8185643821
+            09030889135
           </p>
         </div>
       </div>
