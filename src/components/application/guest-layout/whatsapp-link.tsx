@@ -3,7 +3,7 @@ import ChevronRight from "@/assets/images/contact-dropdown/chevron-right.svg";
 import WhatsApp from "@/assets/images/contact-dropdown/whatsapp.svg";
 
 export default function WhatsAppLink() {
-  const whatsappURL = `https://api.whatsapp.com/send?phone=++2349030889135&text=${""}`;
+  const whatsappURL = `https://api.whatsapp.com/send?phone=+2349030889135&text=${"Hello uchecrypt"}`;
   return (
     <div
       onClick={() => window.open(whatsappURL, "_blank")}
