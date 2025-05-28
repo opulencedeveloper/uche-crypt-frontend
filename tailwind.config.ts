@@ -29,6 +29,8 @@ const config = {
         medium: ["CarosSoftMedium", "sans-serif"],
         bold: ["CarosSoftBold", "sans-serif"],
         extraBold: ["CarosSoftExtraBold", "sans-serif"],
+        geistRegular: ["GeistRegular", "sans-serif"],
+        geistBold: ["GeistBold", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -43,6 +45,10 @@ const config = {
         oldlace: "#FCF8ED",
         deepGreen: "#003D1F",
         amber: "#E5B800",
+        fffefb: "#FFFEFB",
+        c006633: "#006633",
+        e5e5e5: "#E5E5E5",
+        rgba87235161: "rgba(87, 235, 161, 0.09)",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

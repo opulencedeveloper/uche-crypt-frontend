@@ -118,12 +118,14 @@ footer {
   font-weight: 200;
   font-style: normal;
 }
+
 @font-face {
   font-family: "CarosSoftNormal";
   src: url("/fonts/CarosSoftLight.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: "CarosSoftMedium";
   src: url("/fonts/CarosSoftMedium.otf") format("opentype");
@@ -137,10 +139,25 @@ footer {
   font-weight: 700;
   font-style: normal;
 }
+
 @font-face {
   font-family: "CarosSoftExtraBold";
   src: url("/fonts/CarosSoftExtraBold.otf") format("opentype");
   font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GeistRegular";
+  src: url("/fonts/GeistRegular.ttf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GeistBold";
+  src: url("/fonts/GeistBold.ttf") format("opentype");
+  font-weight: 700;
   font-style: normal;
 }
 
