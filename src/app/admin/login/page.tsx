@@ -24,7 +24,7 @@ export default function Page() {
   return (
     <section className="w-full bg-oldlace overflow-y-auto pb-10 h-dvh flex flex-col items-center">
 
-        <AdminLoginForm />
+        {/* <AdminLoginForm /> */}
     </section>
   );
 }
