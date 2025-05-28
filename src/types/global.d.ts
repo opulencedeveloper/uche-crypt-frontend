@@ -4,9 +4,3 @@ interface Window {
   
 }
 
-export interface NavLink {
-  label: string;
-  href: string;
-  activeIcon: StaticImageData;
-  inActiveIcon: StaticImageData;
-}

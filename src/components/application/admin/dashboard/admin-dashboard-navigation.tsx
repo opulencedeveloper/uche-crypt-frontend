@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { NavLink } from "@/types/global";
+//import { NavLink } from "@/types/global";
 
 import LogoImage from "@/assets/images/navigation/logo.svg";
 import DashBoardActiveIcon from "@/assets/admin/icon/dashboard-active.svg";
@@ -13,6 +13,13 @@ import PurchasesInActiveIcon from "@/assets/admin/icon/purchases-inactive.svg";
 import ReferralsInactiveIcon from "@/assets/admin/icon/referrals-inactive.svg";
 import SettingsInactiveIcon from "@/assets/admin/icon/setting-inactive.svg";
 import LogOutIcon from "@/assets/admin/icon/logout.svg";
+
+export interface NavLink {
+  label: string;
+  href: string;
+  activeIcon: StaticImageData;
+  inActiveIcon: StaticImageData;
+}
 
 const navLinks: NavLink[] = [
   {
