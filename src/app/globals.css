@@ -155,9 +155,30 @@ footer {
 }
 
 @font-face {
+  font-family: "GeistMedium";
+  src: url("/fonts/GeistMedium.ttf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "GeistBold";
   src: url("/fonts/GeistBold.ttf") format("opentype");
   font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BDOGroteskLight";
+  src: url("/fonts/BDOGroteskLight.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BDOGroteskMedium";
+  src: url("/fonts/BDOGroteskMedium.otf") format("opentype");
+  font-weight: 500;
   font-style: normal;
 }
 

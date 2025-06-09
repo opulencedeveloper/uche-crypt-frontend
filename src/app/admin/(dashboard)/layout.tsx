@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import { useUser } from "@/contexts/user";
 import { useAuth } from "@/hooks/auth";
 import { useEffect } from "react";
-import AdminDashboardNavigation from "@/components/application/admin/dashboard/admin-dashboard-navigation";
+import AdminDashboardNavigation from "@/components/application/admin/dashboard/ui/admin-dashboard-navigation";
 
 export default function GuestLayout({
   children,

@@ -53,7 +53,7 @@ export default function AdminLoginForm() {
       className="w-[375px] max-w-full h-max rounded-xl bg-white py-[18px] px-5 sm:px-8 flex flex-col"
     >
      
-        <h3 className="text-dark1 font-geistBold mb-1 text-[13px] mini:text-xl sm:text-[22px] leading-6 mini:leading-[33px]">
+        <h3 className="text-dark1 geist700 mb-1 text-[13px] mini:text-xl sm:text-[22px] leading-6 mini:leading-[33px]">
         Welcome, Admin
         </h3>
       <p className="text-[#6B7588] font-normal text-[11px] mini:text-sm mb-3.5 mini:mb-[23px]">

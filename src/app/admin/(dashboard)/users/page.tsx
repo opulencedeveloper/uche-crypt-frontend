@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 
-import AdminDashboardBody from "@/components/application/admin/dashboard/home/admin-dashboard-body";
 import AdminDashboardHeader from "@/components/application/admin/dashboard/ui/admin-dashboard-header";
+import AdminUserBody from "@/components/application/admin/dashboard/users/admin-user-body";
 
 export const metadata: Metadata = {
-  title: "Aadmin Dashboard",
+  title: "Admin Dashboard",
   // description:
   //   "This exclusive member portal gives you access to comprehensive lessons on crypto trading, blockchain technology, DeFi strategies, and much more. Stay connected to your learning journey, track your progress, and dive into actionable strategies that empower you to thrive in the crypto market.",
   // keywords: [
@@ -22,10 +22,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <section className="w-full h-dvh overflow-y-auto">
-      <AdminDashboardHeader title="Dashboard" subtitle="overview of your platform" />
-
-        <AdminDashboardBody />
+    <section className="w-full h-dvh overflow-y-auto pb-7">
+      <AdminDashboardHeader title="Users" subtitle="Manage users and their referral percentages" />
+        <AdminUserBody />
     </section>
   );
 }
